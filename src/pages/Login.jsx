@@ -1,4 +1,3 @@
-import "./Login.css";
 import Icon1 from "../assets/user.png";
 import Icon2 from "../assets/lock.png";
 import { Link, useNavigate } from "react-router-dom";

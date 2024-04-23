@@ -25,7 +25,7 @@ const User = () => {
                 <Link to={`/${id}/user`} >Home</Link>
                 <Link to={`/${id}/user/profile`} >Perfil</Link>
                 <Link to={`/${id}/user/adicionar-artigos`} >Adicionar Artigo</Link>
-                <Link to={`/${id}/user/calcs`} >IMC/BASAL</Link>
+                <Link to={`/${id}/user/artigos`} >Artigos</Link>
             </div>
         </nav>
         

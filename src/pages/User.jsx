@@ -24,7 +24,7 @@ const User = () => {
             <div className="selection-buttons">
                 <Link to={`/${id}/user`} >Home</Link>
                 <Link to={`/${id}/user/profile`} >Perfil</Link>
-                <Link to={`/${id}/user/workouts`} >Treinos</Link>
+                <Link to={`/${id}/user/adicionar-artigos`} >Adicionar Artigo</Link>
                 <Link to={`/${id}/user/calcs`} >IMC/BASAL</Link>
             </div>
         </nav>

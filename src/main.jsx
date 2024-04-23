@@ -9,6 +9,7 @@ import User from './pages/User.jsx'
 import Profile from './pages/Profile.jsx'
 import Home from './pages/Home.jsx'
 import Register from './pages/Register.jsx'
+import CreateArticle from './pages/CreateArticle.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/:id/user/adicionar-artigos",
-            element: <Profile />
+            element: <CreateArticle />
           },
         ]
       }

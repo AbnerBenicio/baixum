@@ -35,6 +35,10 @@ const router = createBrowserRouter([
             path: "/:id/user/profile",
             element: <Profile />
           },
+          {
+            path: "/:id/user/adicionar-artigos",
+            element: <Profile />
+          },
         ]
       }
     ]

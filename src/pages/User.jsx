@@ -6,26 +6,26 @@ import API from "../api/api";
 const User = () => {
 
   const [usuario, setUsuario] = useState()
-  const { id } = useParams()
+  const { usuarioID } = useParams()
 
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await API.get(`user/${id}`);
+      const res = await API.get(`user/${usuarioID}`);
       setUsuario(res.data);
     };
 
     fetchApi();
-  }, [id]);
+  }, [usuarioID]);
 
   return (
     <div className="user-container">
         <nav>
             <h1 className="greeting">Olá, {usuario ? usuario.name : ''}</h1>
             <div className="selection-buttons">
-                <Link to={`/${id}/user`} >Home</Link>
-                <Link to={`/${id}/user/profile`} >Perfil</Link>
-                <Link to={`/${id}/user/adicionar-artigos`} >Adicionar Artigo</Link>
-                <Link to={`/${id}/user/artigos`} >Artigos</Link>
+                <Link to={`/${usuarioID}/user`} >Home</Link>
+                <Link to={`/${usuarioID}/user/profile`} >Perfil</Link>
+                <Link to={`/${usuarioID}/user/adicionar-artigos`} >Adicionar Artigo</Link>
+                <Link to={`/${usuarioID}/user/artigos`} >Artigos</Link>
             </div>
         </nav>
         

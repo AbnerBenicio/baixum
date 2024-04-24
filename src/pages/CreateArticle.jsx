@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../api/api";
+import API_3 from "../api/api3";
+import SelectTema from "../components/SelectTema";
 
 const CreateArticle = () => {
   //Criando variáveis para guardar dados do fomulário e autor
@@ -8,17 +10,17 @@ const CreateArticle = () => {
   const [tema, setTema] = useState("");
   const [conteudo, setConteudo] = useState("");
   const [autor, setAutor] = useState("");
-  const { id } = useParams();
+  const { usuarioID } = useParams();
 
   //Buscando autor/usuário
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await API.get(`user/${id}`);
+      const res = await API.get(`user/${usuarioID}`);
       setAutor(res.data);
     };
 
     fetchApi();
-  }, [id]);
+  }, [usuarioID]);
 
   //Função para limpeza das varáveis
   const cleanData = () => {
@@ -45,7 +47,7 @@ const CreateArticle = () => {
       //Tentando enviar formulário
       try {
         //Enviando artigo
-        await API.post("/articles", artigo);
+        await API_3.post("/articles-to-be-evaluated", artigo);
         //Alertando ao usuário que artigo foi enviado com sucesso
         alert("Artigo enviado com sucesso!");
         // Limpando os campos do formulário
@@ -59,6 +61,10 @@ const CreateArticle = () => {
       alert("Todas as informações devem ser preenchidas");
     }
   };
+
+  const handleMudaTema = (e) => {
+    setTema(e.target.value)
+  }
 
   //Retornando página
   return (
@@ -78,15 +84,7 @@ const CreateArticle = () => {
         {/*Campo para tema do artigo*/}
         <label>
           <span>Tema</span>
-          <select
-            value={tema}
-            name="tema"
-            onChange={(e) => setTema(e.target.value)}
-          >
-            <option value="">Selecione...</option>
-            <option value="programacao">Programação</option>
-            <option value="auto-ajuda">Auto-ajuda</option>
-          </select>
+          <SelectTema tema={tema} handleMudaTema={handleMudaTema}/>
         </label>
         {/*Campo para conteúdo do artigo*/}
         <label>

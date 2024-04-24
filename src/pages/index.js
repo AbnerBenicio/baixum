@@ -5,3 +5,4 @@ export { default as Home } from './Home.jsx';
 export { default as Register } from './Register.jsx';
 export { default as CreateArticle } from './CreateArticle.jsx';
 export { default as Articles } from './Articles.jsx';
+export {default as SelectedArticle} from './SelectedArticle.jsx'

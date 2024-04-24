@@ -4,7 +4,8 @@ import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
-import { Login, User, Profile, Home, Register, CreateArticle, Articles } from './pages';
+import { Login, User, Profile, Home, Register, CreateArticle, Articles, SelectedArticle } from './pages';
+
 
 
 const router = createBrowserRouter([
@@ -21,25 +22,29 @@ const router = createBrowserRouter([
         element:<Register />
       },
       {
-        path:"/:id/user",
+        path:"/:usuarioID/user",
         element:<User />,
         children: [
           {
-            path: "/:id/user",
+            path: "/:usuarioID/user",
             element: <Home />
           },
           {
-            path: "/:id/user/profile",
+            path: "/:usuarioID/user/profile",
             element: <Profile />
           },
           {
-            path: "/:id/user/adicionar-artigos",
+            path: "/:usuarioID/user/adicionar-artigos",
             element: <CreateArticle />
           },
           {
-            path: "/:id/user/artigos",
-            element: <Articles />
+            path: "/:usuarioID/user/artigos",
+            element: <Articles />,
           },
+          {
+            path: "/:usuarioID/user/artigos/:artigoID",
+            element: <SelectedArticle />
+          }
         ]
       }
     ]

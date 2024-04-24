@@ -14,6 +14,7 @@ const Register = () => {
   const [confSenha, setConfSenha] = useState("");
   const [campoBranco, setCampoBranco] = useState(false);
   const [senhaIncompativel, setSenhaIncompativel] = useState(false);
+  const navigate = useNavigate();
 
   //Buscando usuários
   useEffect(() => {
@@ -25,7 +26,15 @@ const Register = () => {
     fetchApi();
   }, []);
 
-  const navigate = useNavigate();
+  //Função para limpara estados
+  const cleanData = () => {
+    setName("");
+    setEmail("");
+    setSenha("");
+    setConfSenha("");
+    setSenhaIncompativel(false);
+    setCampoBranco(false);
+  };
 
   //Validacao de formulario
   const handleSubmit = async (e) => {
@@ -43,15 +52,10 @@ const Register = () => {
             name: name.toUpperCase(),
             email: email,
             password: senha,
-            adm: false
+            adm: false,
           };
           //Limpando estados
-          setName("");
-          setEmail("");
-          setSenha("");
-          setConfSenha("");
-          setSenhaIncompativel(false);
-          setCampoBranco(false);
+          cleanData();
           //Adicionando usuario no sistema
           // eslint-disable-next-line no-unused-vars
           const res = await API.post("user", user);

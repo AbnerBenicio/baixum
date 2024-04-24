@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import API from "../api/api";
 import ArticleCard from "../components/ArticleCard";
 import SelectTema from "../components/SelectTema";
+import BtnPaginacao from "../components/BtnPaginacao";
 
 const Articles = () => {
   //Criando variáveis para controle da paginação
   const [temaSelecionado, setTemaSelecionado] = useState("");
   const [artigos, setArtigos] = useState([]);
   const [page, setPage] = useState(1);
-  const [semArtigos, setSemArtigos] = useState(false);
+  const [hasNextPage, setHasNextPage] = useState(true);
   const { usuarioID } = useParams();
 
   //Buscando artigos
@@ -30,16 +31,16 @@ const Articles = () => {
         //Verifica se próxima página não tem artigos
         if (nextRes.data.length === 0) {
           //Se não tiver, define que não existem mais páginas depois
-          setSemArtigos(true);
+          setHasNextPage(false);
         } else {
           //Se tiver, define que existe mais páginas depois
-          setSemArtigos(false);
+          setHasNextPage(true);
         }
       } catch (error) {
         // Se ocorrer um erro, verifica se é erro 404 (não encontrado)
         if (error.response && error.response.status === 404) {
           setArtigos([]); // Define artigos como vazio
-          setSemArtigos(true); // Define que não há artigos
+          setHasNextPage(false); // Define que não há artigos
         } 
       }
     };
@@ -93,30 +94,7 @@ const Articles = () => {
       )}
 
       {/*Botões para passar de página*/}
-      <div className="buttons">
-        {/*Botão para voltar a página
-              Se estiver na primeira página é desabilitado
-              Se estiver em outras páginas é habilitado
-            */}
-        {page == 1 ? (
-          <button disabled>Prev</button>
-        ) : (
-          <button onClick={handlePrevPage}>Prev</button>
-        )}
-
-        {/*Indicativo da página atual*/}
-        <span>{page}</span>
-
-        {/*Botão para ir para a próxima página
-              Se não tiver próxima página é desabilitado
-              Se houver próxima página é habilitado
-            */}
-        {semArtigos ? (
-          <button disabled>Next</button>
-        ) : (
-          <button onClick={handleProxPage}>Next</button>
-        )}
-      </div>
+      <BtnPaginacao page={page} handleProxPage={handleProxPage} handlePrevPage={handlePrevPage} hasNextPage={hasNextPage}/>
     </div>
   );
 };

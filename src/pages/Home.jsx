@@ -1,6 +1,5 @@
-
-
 const Home = () => {
+  //Retornando página
   return (
     <div className='home-content'>
         <h1>Colocar Imagem</h1>
@@ -9,4 +8,5 @@ const Home = () => {
   )
 }
 
+//Exportando página
 export default Home

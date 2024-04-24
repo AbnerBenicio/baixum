@@ -41,7 +41,7 @@ const Articles = () => {
         if (error.response && error.response.status === 404) {
           setArtigos([]); // Define artigos como vazio
           setHasNextPage(false); // Define que não há artigos
-        } 
+        }
       }
     };
 
@@ -85,6 +85,7 @@ const Articles = () => {
               titulo={artigo.titulo}
               id={artigo.id}
               usuarioID={usuarioID}
+              autor={artigo.autor}
             />
           ))}
         </div>
@@ -94,7 +95,12 @@ const Articles = () => {
       )}
 
       {/*Botões para passar de página*/}
-      <BtnPaginacao page={page} handleProxPage={handleProxPage} handlePrevPage={handlePrevPage} hasNextPage={hasNextPage}/>
+      <BtnPaginacao
+        page={page}
+        handleProxPage={handleProxPage}
+        handlePrevPage={handlePrevPage}
+        hasNextPage={hasNextPage}
+      />
     </div>
   );
 };

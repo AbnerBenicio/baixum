@@ -1,11 +1,9 @@
-//Imports
 import Icon1 from "../assets/user.png";
 import Icon2 from "../assets/lock.png";
 import { useNavigate } from "react-router-dom";
 import API from "../api/api";
 import { useEffect, useState } from "react";
 
-//Pagina "Register"
 const Register = () => {
   //Sets de informacoes cadastradas
   const [usuarios, setUsuarios] = useState();
@@ -17,6 +15,7 @@ const Register = () => {
   const [campoBranco, setCampoBranco] = useState(false);
   const [senhaIncompativel, setSenhaIncompativel] = useState(false);
 
+  //Buscando usuários
   useEffect(() => {
     const fetchApi = async () => {
       const res = await API.get("user");
@@ -67,10 +66,12 @@ const Register = () => {
     }
   };
 
-  //Estrutura do pagina
+  //Retornando página
   return (
     <div className="login-container">
+      {/*Formulário para cadastro de usuário */}
       <form onSubmit={handleSubmit}>
+        {/*Campo para nome*/}
         <label>
           <span>
             <img src={Icon1} alt="" />
@@ -84,6 +85,7 @@ const Register = () => {
             value={name}
           />
         </label>
+        {/*Campo para email*/}
         <label>
           <span>
             <img src={Icon1} alt="" />
@@ -97,6 +99,7 @@ const Register = () => {
             value={email}
           />
         </label>
+        {/*Campo para senha*/}
         <label>
           <span>
             <img src={Icon2} alt="" />
@@ -110,6 +113,7 @@ const Register = () => {
             value={senha}
           />
         </label>
+        {/*Campo para confirmação de senha */}
         <label>
           <span>
             <img src={Icon2} alt="" />
@@ -123,12 +127,16 @@ const Register = () => {
             value={confSenha}
           />
         </label>
+        {/*Informando que existem campos em brancos*/}
         {campoBranco && <span>Há campo(s) em branco!</span>}
+        {/*Informando que senhas são incompatíveis*/}
         {senhaIncompativel && <span>Senhas incompatíveis!</span>}
+        {/*Informando que usuário já existe*/}
         {usuarioExiste && (
           <span>Usuário já existe! Utilize um novo email.</span>
         )}
 
+        {/*Botão para cadastro de usuário*/}
         <button type="submit">Cadastrar</button>
       </form>
     </div>

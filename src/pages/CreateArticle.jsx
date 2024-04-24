@@ -42,6 +42,7 @@ const CreateArticle = () => {
         conteudo: conteudo,
         autor: autor.name,
         tema: tema,
+        fk_id_autor: autor.id
       };
 
       //Tentando enviar formulário

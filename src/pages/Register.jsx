@@ -40,9 +40,10 @@ const Register = () => {
         //Criando usuário
         if (senha == confSenha) {
           const user = {
-            name: name,
+            name: name.toUpperCase(),
             email: email,
             password: senha,
+            adm: false
           };
           //Limpando estados
           setName("");

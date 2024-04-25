@@ -24,7 +24,7 @@ const SelectTema = ({ tema, handleMudaTema }) => {
       {/*Mpaeando temas para exibir*/}
       {temas &&
         temas.map((currentTema) => (
-          <option key={currentTema.id} value={currentTema.tema}>
+          <option key={currentTema.id} value={currentTema.tipo}>
             {currentTema.titulo}
           </option>
         ))}

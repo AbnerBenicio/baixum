@@ -33,7 +33,12 @@ const Login = () => {
             //Se existir, limpa estados e vai para tela inicial
             setEmail("")
             setSenha("")
-            navigate(`${usuario.id}/user`)
+            if (usuario.adm) {
+              navigate(`${usuario.id}/admin`)
+            } else {
+              navigate(`${usuario.id}/user`)
+            }
+            
         }
     })
     //Define que usuário não existe

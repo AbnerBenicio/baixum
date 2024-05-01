@@ -6,3 +6,6 @@ export { default as Register } from './Register.jsx';
 export { default as CreateArticle } from './CreateArticle.jsx';
 export { default as Articles } from './Articles.jsx';
 export {default as SelectedArticle} from './SelectedArticle.jsx'
+export {default as Admin} from './Admin.jsx'
+export {default as ArticlesNotEvl} from './ArticlesNotEvl.jsx'
+export {default as SelectedArticleNotEvl} from './SelectedArticleNotEvl.jsx'

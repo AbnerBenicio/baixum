@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import API from "../api/api";
 import ArticleCard from "../components/ArticleCard";
 import SelectTema from "../components/SelectTema";
@@ -11,7 +10,6 @@ const Articles = () => {
   const [artigos, setArtigos] = useState([]);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
-  const { usuarioID } = useParams();
 
   //Buscando artigos
   useEffect(() => {
@@ -84,7 +82,6 @@ const Articles = () => {
               key={artigo.id}
               titulo={artigo.titulo}
               id={artigo.id}
-              usuarioID={usuarioID}
               autor={artigo.autor}
             />
           ))}

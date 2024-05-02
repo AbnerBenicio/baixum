@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
-import { Login, User, Profile, Home, Register, CreateArticle, Articles, SelectedArticle, Admin, ArticlesNotEvl, SelectedArticleNotEvl } from './pages';
+import { Login, User, RecoverPassword, Profile, Home, Register, CreateArticle, Articles, SelectedArticle, MyArticles, Admin, ArticlesNotEvl, SelectedArticleNotEvl } from './pages';
 
 
 
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
       {
         path:"/register",
         element:<Register />
+      },
+      {
+        path:"/recover-password",
+        element:<RecoverPassword />
       },
       {
         path:"/:usuarioID/user",
@@ -44,6 +48,10 @@ const router = createBrowserRouter([
           {
             path: "/:usuarioID/user/artigos/:artigoID",
             element: <SelectedArticle />
+          },
+          {
+            path: "/:usuarioID/user/meus-artigos",
+            element: <MyArticles />
           }
         ]
       },

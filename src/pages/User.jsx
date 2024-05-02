@@ -32,6 +32,7 @@ const User = () => {
                 <Link to={`/${usuarioID}/user/profile`} >Perfil</Link> {/*Link para perfil*/}
                 <Link to={`/${usuarioID}/user/adicionar-artigos`} >Adicionar Artigo</Link> {/*Link para pagina de adicionar artigo*/}
                 <Link to={`/${usuarioID}/user/artigos`} >Artigos</Link> {/*Link para artigos*/}
+                <Link to={`/${usuarioID}/user/meus-artigos`} >Meus Artigos</Link> {/*Link para meus artigos*/}
             </div>
         </nav>
         

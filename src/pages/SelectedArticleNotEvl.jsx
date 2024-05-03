@@ -1,7 +1,7 @@
 const SelectedArticleNotEvl = () => {
-    return(
-        <div>SelectedArticleNotEvl my brother</div>
-    )
+  return (
+    <div>SelectedArticleNotEvl</div>
+  )
 }
 
 export default SelectedArticleNotEvl

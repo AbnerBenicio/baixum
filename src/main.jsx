@@ -68,7 +68,7 @@ const router = createBrowserRouter([
             element: <ArticlesNotEvl />
           },
           {
-            path: "/:usuarioID/admin/:artigoID",
+            path: "/:usuarioID/admin/artigos/:artigoID",
             element: <SelectedArticleNotEvl />
           }
         ]

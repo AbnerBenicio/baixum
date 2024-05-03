@@ -1,7 +1,7 @@
 const ArticlesNotEvl = () => {
-    return(
-        <div>ArticlesNotEvl my friend</div>
-    )
+  return (
+    <div>ArticlesNotEvl</div>
+  )
 }
 
 export default ArticlesNotEvl

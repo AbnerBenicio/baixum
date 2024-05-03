@@ -1,7 +1,7 @@
 const Admin = () => {
-    return(
-        <div>Admin my friend</div>
-    )
+  return (
+    <div>Admin</div>
+  )
 }
 
 export default Admin

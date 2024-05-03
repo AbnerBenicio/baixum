@@ -53,7 +53,7 @@ const Profile = () => {
       API.put(`user/${usuarioID}`, updatedUser);
       setModalVisible(false);
       alert("Informações alteradas com sucesso! Faça login novamente.");
-      navigate("../../.."); //redireciona para tela de login
+      navigate("/"); //redireciona para tela de login
       
     } else {
       setError('Senha incorreta. Digite novamente sua senha.');

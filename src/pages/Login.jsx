@@ -33,7 +33,12 @@ const Login = () => {
             //Se existir, limpa estados e vai para tela inicial
             setEmail("")
             setSenha("")
-            navigate(`${usuario.id}/user`)
+            if (usuario.adm) {
+              navigate(`${usuario.id}/admin`)
+            } else {
+              navigate(`${usuario.id}/user`)
+            }
+            
         }
     })
     //Define que usuário não existe
@@ -79,7 +84,7 @@ const Login = () => {
         {!usuarioExistente && <span>Usuário inexistente</span>}
 
         {/*Link para recuperação de senha*/}
-        <span>Esqueceu sua senha? Recupere aqui!</span>
+        <span>Esqueceu sua senha? <Link to="/recover-password">Recupere aqui!</Link></span>
         {/*Botão para login*/}
         <button type="submit">ENTRAR</button>
         {/*Link para cadastro de usuário*/}

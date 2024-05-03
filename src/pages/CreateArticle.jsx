@@ -102,7 +102,7 @@ const CreateArticle = () => {
         </label>
 
         {/*Botão para envio do formulário*/}
-        <button>Enviar</button>
+        <button className="btn btn-primary">Enviar</button>
       </form>
     </div>
   );

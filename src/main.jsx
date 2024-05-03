@@ -64,7 +64,7 @@ const router = createBrowserRouter([
             element: <Profile />
           },
           {
-            path:"/:usuarioID/admin/articles",
+            path:"/:usuarioID/admin/artigos",
             element: <ArticlesNotEvl />
           },
           {

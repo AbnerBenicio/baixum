@@ -1,6 +1,6 @@
 const SelectedArticleNotEvl = () => {
   return (
-    <div>SelectedArticleNotAvl</div>
+    <div>SelectedArticleNotEvl</div>
   )
 }
 

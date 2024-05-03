@@ -29,7 +29,7 @@ const User = () => {
             {/*Links de navegação*/}
             <div className="selection-buttons">
                 <Link to={`/${usuarioID}/user`} >Home</Link> {/*Link para home*/}
-                <Link to={`/${usuarioID}/user/profile`} >Perfil</Link> {/*Link para perfil*/}
+                <Link to={`/${usuarioID}/user/perfil`} >Perfil</Link> {/*Link para perfil*/}
                 <Link to={`/${usuarioID}/user/adicionar-artigos`} >Adicionar Artigo</Link> {/*Link para pagina de adicionar artigo*/}
                 <Link to={`/${usuarioID}/user/artigos`} >Artigos</Link> {/*Link para artigos*/}
                 <Link to={`/${usuarioID}/user/meus-artigos`} >Meus Artigos</Link> {/*Link para meus artigos*/}

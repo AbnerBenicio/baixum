@@ -11,4 +11,3 @@ export {default as MyArticles} from './MyArticles.jsx'
 export {default as Admin} from './Admin.jsx'
 export {default as ArticlesNotEvl} from './ArticlesNotEvl.jsx'
 export {default as SelectedArticleNotEvl} from './SelectedArticleNotEvl.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css';

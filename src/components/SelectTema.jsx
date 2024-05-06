@@ -18,7 +18,7 @@ const SelectTema = ({ tema, handleMudaTema }) => {
 
   //Retornando selecionador de temas
   return (
-    <select value={tema} name="tema" onChange={handleMudaTema}>
+    <select class="form-select" value={tema} name="tema" onChange={handleMudaTema}>
       {/*Opção neutra*/}
       <option value="">Selecione...</option>
       {/*Mpaeando temas para exibir*/}

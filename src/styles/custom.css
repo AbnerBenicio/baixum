@@ -1,0 +1,33 @@
+.jumbotron {
+  position: absolute;
+  top: 50px; /* Ajuste conforme necessário para a altura da barra de navegação */
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  color: #333;
+  z-index: 900; /* Abaixo da barra de navegação */
+}
+
+/* Estilos para o conteúdo dentro da div jumbotron */
+.jumbotron .container-fluid {
+  padding: 0 15px;
+}
+
+.full-width {
+  width: 100vw; /* Define a largura como 100% da largura da viewport */
+}
+
+.no-padding-left {
+  padding-left: 0 !important; /* Remove o padding esquerdo */
+}
+
+
+.z-index-high {
+  z-index: 1000; /* Ou outro valor alto */
+}
+
+.vertical-line {
+  border-right: 1px solid #ccc; /* Define a linha vertical com cor cinza */
+  padding-right: 15px; /* Adiciona um espaço à direita da linha para separação */
+}

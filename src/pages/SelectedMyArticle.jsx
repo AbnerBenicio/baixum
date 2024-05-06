@@ -69,16 +69,17 @@ const SelectedMyArticle = () => {
       alert("Artigo deletado com sucesso!");
       Navigate("../meus-artigos");
     } catch (err) {
-      alert("Erro ao deletadar o artigo");
+      alert("Erro ao deletar o artigo");
     }  
   }
 
   //Retornando página
   return (
-    <div>
+    <>
       {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>}
       {Object.keys(artigo).length ? (
-        <>
+        <div>
+          {/*Form de edição do artigo*/}
           <form>
             <SelectTema
               tema={temaSelecionado}
@@ -101,18 +102,20 @@ const SelectedMyArticle = () => {
               {/*Conteúdo do artigo*/}
             </label>
           </form>
+          {/*Botões para atualizar artigo*/}
           <button className="update" onClick={handleUpdate}>
             Editar
-          </button>
+          </button> {/*Botão de edição*/}
           <button className="delete" onClick={() => setModalOpen(true)}>
             Excluir
-          </button>
-        </>
+          </button> {/*Botão de exclusão*/}
+        </div>
       ) : (
         <h1>Nenhum artigo selecionado</h1>
       )}
-    </div>
+    </>
   );
 };
 
+//Exportando página
 export default SelectedMyArticle;

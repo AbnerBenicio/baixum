@@ -29,7 +29,7 @@ const Admin = () => {
         {/* Links de navegação */}
         <div className="selection-buttons">
           <Link to={`/${usuarioID}/admin`} >Home</Link> {/* Link para home */}
-          <Link to={`/${usuarioID}/admin/profile`} >Perfil</Link> {/* Link para perfil */}
+          <Link to={`/${usuarioID}/admin/perfil`} >Perfil</Link> {/* Link para perfil */}
           <Link to={`/${usuarioID}/admin/artigos`} >Artigos Para Validacao</Link> {/* Link para artigos */}
           <Link to={`/`} >Sair</Link> {/* Link para sair (voltar para tela de login) */}
         </div>

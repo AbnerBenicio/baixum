@@ -5,7 +5,7 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Login, User, RecoverPassword, Profile, Home, Register, CreateArticle, Articles, SelectedArticle, MyArticles, Admin, ArticlesNotEvl, SelectedArticleNotEvl } from './pages';
+import { Login, User, RecoverPassword, Profile, Home, Register, CreateArticle, Articles, SelectedArticle, MyArticles, SelectedMyArticle, Admin, ArticlesNotEvl, SelectedArticleNotEvl } from './pages';
 
 
 
@@ -53,6 +53,10 @@ const router = createBrowserRouter([
           {
             path: "/:usuarioID/user/meus-artigos",
             element: <MyArticles />
+          },
+          {
+            path: "/:usuarioID/user/meus-artigos/:artigoID",
+            element: <SelectedMyArticle />
           }
         ]
       },

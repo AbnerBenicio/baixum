@@ -69,42 +69,59 @@ const CreateArticle = () => {
 
   //Retornando página
   return (
-    <div className="add-artigo">
-      {/*Formulário de criação do artigo*/}
-      <form onSubmit={handleSubmit}>
-        {/*Campo para título do artigo*/}
-        <label>
-          <span>Título</span>
-          <input
-            value={titulo}
-            type="text"
-            name="titulo"
-            onChange={(e) => setTitulo(e.target.value)}
-          />
-        </label>
-        {/*Campo para tema do artigo*/}
-        <label>
-          <span>Tema</span>
-          <SelectTema tema={tema} handleMudaTema={handleMudaTema}/>
-        </label>
-        {/*Campo para conteúdo do artigo*/}
-        <label>
-          <label>Conteúdo</label>
-          <textarea
-            value={conteudo}
-            name="conteudo"
-            id=""
-            cols="60"
-            rows="10"
-            style={{ resize: "none" }}
-            onChange={(e) => setConteudo(e.target.value)}
-          ></textarea>
-        </label>
+      <div class="container mt-4">
+      <h1 class="mb-4">Adicione seu artigo e compartilhe com o mundo</h1>
 
-        {/*Botão para envio do formulário*/}
-        <button className="btn btn-primary">Enviar</button>
-      </form>
+      <div className="jumbotron bg-light">
+        <div className="container-fluid text-center">
+          <h1 className="display-3">Adicione seu artigo e compartilhe com o mundo</h1>
+        </div>
+      </div>
+
+      <div class="add-artigo">
+        {/*Formulário de criação do artigo*/}
+        <form class="mb-3" onSubmit={handleSubmit}>
+          {/*Campo para título do artigo*/}
+          <div class="input-group mb-3">
+            <span class="input-group-text">Título</span>
+            <input
+              value={titulo}
+              type="text"
+              name="titulo"
+              class="form-control"
+              onChange={(e) => setTitulo(e.target.value)}
+            />
+          </div>
+
+          {/*Campo para tema do artigo*/}
+          <div class="input-group mb-3">
+            <span class="input-group-text">Tema</span>
+            <SelectTema tema={tema} handleMudaTema={handleMudaTema} />
+          </div>
+
+          {/*Campo para conteúdo do artigo*/}
+          <div class="mb-3">
+            <label class="form-label">Conteúdo</label>
+            <div class="input-group">
+              <textarea
+                value={conteudo}
+                name="conteudo"
+                class="form-control"
+                id=""
+                cols="60"
+                rows="10"
+                style={{ resize: "none" }}
+                onChange={(e) => setConteudo(e.target.value)}
+              ></textarea>
+            </div>
+          </div>
+
+          {/*Botão para envio do formulário*/}
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
     </div>
+
   );
 };
 

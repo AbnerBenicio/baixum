@@ -20,14 +20,14 @@ const SelectedArticle = () => {
 
   //Retornando página
   return (
-    <div class="container text-center full-width">
-      <div class="row">
-        <div class="col-4 vertical-line">
+    <div className="container text-center full-width">
+      <div className="row">
+        <div className="col-4 vertical-line">
           <h1>{artigo.titulo}</h1> {/*Título do artigo*/}
           <h2>Escrito por: {artigo.autor}</h2> {/*Autor do artigo*/}
         </div>
         
-        <div class="col-8">
+        <div className="col-8">
           <p>{artigo.conteudo}</p> {/*Conteúdo do artigo*/}
         </div>
       </div>

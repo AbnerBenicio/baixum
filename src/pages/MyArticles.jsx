@@ -71,37 +71,41 @@ const MyArticles = () => {
 
   //Retornando página
   return (
-    //Seleção de tema dos artigos
-    <div className="artigos-main">
-      <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
-
-      {/*Exibindo artigos, se requisição for atendida e houverem artigos*/}
-      {artigos && artigos.length > 0 ? (
-        <div className="artigos">
-          {/*Mapeando artigos*/}
-          {artigos.map((artigo) => (
-            //Exibindo artigos
-            <ArticleCard
-              key={artigo.id}
-              titulo={artigo.titulo}
-              id={artigo.id}
-              autor={artigo.autor}
-            />
-          ))}
+    <div className="container-fluid full-width vh-100">
+      <div className="row">
+        {/* Coluna para Busca de Tema */}
+        <div className="col-sm-12 col-md-4 bg-light py-4 margin-top-25">
+          <div className="d-flex flex-column align-items-center">
+            <h2 className="text-center mb-4">Busque o tema</h2>
+            <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
+          </div>
         </div>
-      ) : (
-        //Caso não existam artigos, informando ao usuário
-        <h1>Sem artigos aqui</h1>
-      )}
-
-      {/*Botões para passar de página*/}
-      <BtnPaginacao
-        page={page}
-        handleProxPage={handleProxPage}
-        handlePrevPage={handlePrevPage}
-        hasNextPage={hasNextPage}
-      />
+        {/* Coluna para Artigos e Paginação */}
+        <div className="col-sm-12 col-md-8 py-4 margin-top-30">
+          <div className="artigos-container">
+            {artigos && artigos.length > 0 ? (
+              artigos.map((artigo) => (
+                <ArticleCard
+                  key={artigo.id}
+                  titulo={artigo.titulo}
+                  id={artigo.id}
+                  autor={artigo.autor}
+                />
+              ))
+            ) : (
+              <h1>Sem artigos aqui</h1>
+            )}
+            <BtnPaginacao
+              page={page}
+              handleProxPage={handleProxPage}
+              handlePrevPage={handlePrevPage}
+              hasNextPage={hasNextPage}
+            />
+          </div>
+        </div>
+      </div>
     </div>
+
   );
 }
 

@@ -31,3 +31,20 @@
   border-right: 1px solid #ccc; /* Define a linha vertical com cor cinza */
   padding-right: 15px; /* Adiciona um espaço à direita da linha para separação */
 }
+
+.margin-top-25 {
+  margin-top: 25px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-top-75 {
+  margin-top: 75px;
+}
+
+.artigos-container {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}

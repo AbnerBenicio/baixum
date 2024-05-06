@@ -70,7 +70,6 @@ const CreateArticle = () => {
   //Retornando página
   return (
       <div className="container mt-4">
-      <h1 className="mb-4">Adicione seu artigo e compartilhe com o mundo</h1>
 
       <div className="jumbotron bg-light">
         <div className="container-fluid text-center">
@@ -78,7 +77,7 @@ const CreateArticle = () => {
         </div>
       </div>
 
-      <div className="add-artigo">
+      <div className="add-artigo margin-top-75">
         {/*Formulário de criação do artigo*/}
         <form className="mb-3" onSubmit={handleSubmit}>
           {/*Campo para título do artigo*/}

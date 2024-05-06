@@ -48,51 +48,66 @@ const Login = () => {
 
   //Retornando página
   return (
-    <div className="login-container">
-      {/*Formulário para login*/}
-      <form onSubmit={handleSubmit}>
-        {/*Campo de email*/}
-        <label>
-          <span>
-            <img src={Icon1} alt="" />
-          </span>
-          <input
-            type="email"
-            name="usuario"
-            id="usuario"
-            placeholder="Digite seu email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </label>
-        <label>
-          {/*Campo de senha*/}
-          <span>
-            <img src={Icon2} alt="" />
-          </span>
-          <input
-            type="password"
-            name="senha"
-            id="senha"
-            placeholder="Digite sua senha"
-            onChange={(e) => setSenha(e.target.value)}
-            value={senha}
-          />
-        </label>
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+      <div class="card bg-light text-center">
+        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+          {/* Formulário para login */}
+          <form onSubmit={handleSubmit}>
+            {/* Campo de email */}
+            <div class="input-group flex-nowrap mb-4">
+              <span class="input-group-text" id="addon-wrapping">
+                <img src={Icon1} alt="" />
+              </span>
+              <input
+                type="email"
+                name="usuario"
+                id="usuario"
+                class="form-control"
+                placeholder="Digite seu email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
 
-        {/*Informando que usuário não existe*/}
-        {!usuarioExistente && <span>Usuário inexistente</span>}
+            {/* Campo de senha */}
+            <div class="input-group flex-nowrap mb-4">
+              <span class="input-group-text" id="addon-wrapping">
+                <img src={Icon2} alt="" />
+              </span>
+              <input
+                type="password"
+                name="senha"
+                id="senha"
+                class="form-control"
+                placeholder="Digite sua senha"
+                onChange={(e) => setSenha(e.target.value)}
+                value={senha}
+              />
+            </div>
 
-        {/*Link para recuperação de senha*/}
-        <span>Esqueceu sua senha? <Link to="/recover-password">Recupere aqui!</Link></span>
-        {/*Botão para login*/}
-        <button type="submit">ENTRAR</button>
-        {/*Link para cadastro de usuário*/}
-        <span>
-          Não tem conta? <Link to="/register">Cadastre-se</Link> agora
-        </span>
-      </form>
+            {/* Informando que usuário não existe */}
+            {!usuarioExistente && <span className="text-danger">Usuário inexistente</span>}
+
+            {/* Links em uma coluna */}
+            <div className="d-flex flex-column align-items-center">
+              {/* Link para recuperação de senha */}
+              <span className="mt-2 mb-2">
+                Esqueceu sua senha? <Link to="/recover-password" className="btn btn-link">Recupere aqui!</Link>
+              </span>
+
+              {/* Botão para login */}
+              <button type="submit" className="btn btn-primary btn-block mb-2">ENTRAR</button>
+              
+              {/* Link para cadastro de usuário */}
+              <span className="mt-2">
+                Não tem conta? <Link to="/register" className="btn btn-link">Cadastre-se</Link> agora
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+
   );
 };
 

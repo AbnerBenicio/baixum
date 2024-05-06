@@ -1,5 +1,6 @@
 import { useParams, useNavigate} from "react-router-dom";
 import { useState, useEffect } from "react";
+import Icon2 from "../assets/lock.png";
 import API from '../api/api';
 
 const Profile = () => {
@@ -63,27 +64,91 @@ const Profile = () => {
 
   return (
     <div>
-      <h1>Perfil</h1>
-      <form>
-        <label>Nome</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} /><br />
-        <label>Email</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
-        <label>Senha</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
-      </form>
-      <button onClick={handleSaveClick}>Salvar</button>
-      {modalVisible && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Confirme sua senha</h2>
-            <input type="password" value={verifyPassword} onChange={(e) => setVerifyPassword(e.target.value)} /><br />
-            <button onClick={handleConfirmSave}>Confirmar</button>
-            {error && <p>{error}</p>}
+      <div className="jumbotron bg-light">
+        <div className="container-fluid text-center">
+          <h2 className="display-3">Atualize Sua Conta</h2>
+        </div>
+      </div>
+
+      <div className="container h-100 d-flex justify-content-center align-items-center">
+        <div className="card bg-light text-center">
+          <div className="card-body d-flex flex-column align-items-center justify-content-center">
+            {/* Formulário de perfil */}
+            <form onSubmit={handleSaveClick}>
+              {/* Campo de nome */}
+              <div className="input-group flex-nowrap mb-4">
+                <span className="input-group-text" id="addon-wrapping">Nome</span>
+                <input
+                  type="text"
+                  name="nome"
+                  id="nome"
+                  className="form-control"
+                  placeholder="Digite seu nome"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                />
+              </div>
+
+              {/* Campo de email */}
+              <div className="input-group flex-nowrap mb-4">
+                <span className="input-group-text" id="addon-wrapping">
+                  @
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="form-control"
+                  placeholder="Digite seu email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </div>
+
+              {/* Campo de senha */}
+              <div className="input-group flex-nowrap mb-4">
+                <span className="input-group-text" id="addon-wrapping">
+                  <img src={Icon2} alt="" />
+                </span>
+                <input
+                  type="password"
+                  name="senha"
+                  id="senha"
+                  className="form-control"
+                  placeholder="Digite sua senha"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+              </div>
+
+              {/* Botão para salvar */}
+              <button type="submit" className="btn btn-primary btn-block mb-2">Salvar</button>
+            </form>
+
+            {/* Modal de confirmação */}
+            {modalVisible && (
+              <div className="modal">
+                <div className="modal-content">
+                  <h2>Confirme sua senha</h2>
+                  <input
+                    type="password"
+                    name="verifyPassword"
+                    id="verifyPassword"
+                    className="form-control"
+                    placeholder="Confirme sua senha"
+                    onChange={(e) => setVerifyPassword(e.target.value)}
+                    value={verifyPassword}
+                  />
+                  <button onClick={handleConfirmSave} className="btn btn-primary btn-block mt-2">Confirmar</button>
+                  {error && <p>{error}</p>}
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </div>
+
   );
 }
 

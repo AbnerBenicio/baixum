@@ -73,77 +73,91 @@ const Register = () => {
 
   //Retornando página
   return (
-    <div className="login-container">
-      {/*Formulário para cadastro de usuário */}
-      <form onSubmit={handleSubmit}>
-        {/*Campo para nome*/}
-        <label>
-          <span>
-            <img src={Icon1} alt="" />
-          </span>
-          <input
-            type="text"
-            name="Nome"
-            id="Nome"
-            placeholder="Digite seu nome"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </label>
-        {/*Campo para email*/}
-        <label>
-          <span>
-            <img src={Icon1} alt="" />
-          </span>
-          <input
-            type="email"
-            name="Rmail"
-            id="Email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </label>
-        {/*Campo para senha*/}
-        <label>
-          <span>
-            <img src={Icon2} alt="" />
-          </span>
-          <input
-            type="password"
-            name="senha"
-            id="senha"
-            placeholder="Senha"
-            onChange={(e) => setSenha(e.target.value)}
-            value={senha}
-          />
-        </label>
-        {/*Campo para confirmação de senha */}
-        <label>
-          <span>
-            <img src={Icon2} alt="" />
-          </span>
-          <input
-            type="password"
-            name="senhaConfirm"
-            id="senhaConfirm"
-            placeholder="Confirme sua senha"
-            onChange={(e) => setConfSenha(e.target.value)}
-            value={confSenha}
-          />
-        </label>
-        {/*Informando que existem campos em brancos*/}
-        {campoBranco && <span>Há campo(s) em branco!</span>}
-        {/*Informando que senhas são incompatíveis*/}
-        {senhaIncompativel && <span>Senhas incompatíveis!</span>}
-        {/*Informando que usuário já existe*/}
-        {usuarioExiste && (
-          <span>Usuário já existe! Utilize um novo email.</span>
-        )}
+    <div className="container h-100 d-flex justify-content-center align-items-center">
+      <div className="card bg-light text-center">
+        <div className="card-body d-flex flex-column align-items-center justify-content-center">
+          {/* Formulário para cadastro de usuário */}
+          <form onSubmit={handleSubmit}>
+            {/* Campo para nome */}
+            <div className="input-group flex-nowrap mb-4">
+              <span className="input-group-text" id="addon-wrapping">
+                <img src={Icon1} alt="" />
+              </span>
+              <input
+                type="text"
+                name="Nome"
+                id="Nome"
+                className="form-control"
+                placeholder="Digite seu nome"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+              />
+            </div>
 
-        {/*Botão para cadastro de usuário*/}
-        <button type="submit">Cadastrar</button>
-      </form>
+            {/* Campo para email */}
+            <div className="input-group flex-nowrap mb-4">
+              <span className="input-group-text" id="addon-wrapping">
+                <img src={Icon1} alt="" />
+              </span>
+              <input
+                type="email"
+                name="Rmail"
+                id="Email"
+                className="form-control"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
+
+            {/* Campo para senha */}
+            <div className="input-group flex-nowrap mb-4">
+              <span className="input-group-text" id="addon-wrapping">
+                <img src={Icon2} alt="" />
+              </span>
+              <input
+                type="password"
+                name="senha"
+                id="senha"
+                className="form-control"
+                placeholder="Senha"
+                onChange={(e) => setSenha(e.target.value)}
+                value={senha}
+              />
+            </div>
+
+            {/* Campo para confirmação de senha */}
+            <div className="input-group flex-nowrap mb-4">
+              <span className="input-group-text" id="addon-wrapping">
+                <img src={Icon2} alt="" />
+              </span>
+              <input
+                type="password"
+                name="senhaConfirm"
+                id="senhaConfirm"
+                className="form-control"
+                placeholder="Confirme sua senha"
+                onChange={(e) => setConfSenha(e.target.value)}
+                value={confSenha}
+              />
+            </div>
+
+            {/* Informando que existem campos em branco */}
+            {campoBranco && <span className="text-danger">Há campo(s) em branco!</span>}
+
+            {/* Informando que senhas são incompatíveis */}
+            {senhaIncompativel && <span className="text-danger">Senhas incompatíveis!</span>}
+
+            {/* Informando que usuário já existe */}
+            {usuarioExiste && (
+              <span className="text-danger">Usuário já existe! Utilize um novo email.</span>
+            )}
+
+            {/* Botão para cadastro de usuário */}
+            <button type="submit" className="btn btn-primary">Cadastrar</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

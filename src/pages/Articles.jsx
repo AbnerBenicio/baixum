@@ -3,6 +3,7 @@ import API from "../api/api";
 import ArticleCard from "../components/ArticleCard";
 import SelectTema from "../components/SelectTema";
 import BtnPaginacao from "../components/BtnPaginacao";
+import '../styles/custom.css';
 
 const Articles = () => {
   //Criando variáveis para controle da paginação
@@ -69,36 +70,43 @@ const Articles = () => {
   //Retornando página
   return (
     //Seleção de tema dos artigos
-    <div className="artigos-main">
-      <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
-
-      {/*Exibindo artigos, se requisição for atendida e houverem artigos*/}
-      {artigos && artigos.length > 0 ? (
-        <div className="artigos">
-          {/*Mapeando artigos*/}
-          {artigos.map((artigo) => (
-            //Exibindo artigos
-            <ArticleCard
-              key={artigo.id}
-              titulo={artigo.titulo}
-              id={artigo.id}
-              autor={artigo.autor}
-            />
-          ))}
+    <div class="container-fluid full-width">
+      <div class="row row-cols-3">
+        <div class="col bg-light">
+          <div class="align-items-start ml-auto">
+            <div class="row align-items-center mt-5 ml-2">
+                <h2 class="mb-0 mr-3 text-center">Busque o tema</h2>
+                <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
+            </div>
+          </div>
         </div>
-      ) : (
-        //Caso não existam artigos, informando ao usuário
-        <h1>Sem artigos aqui</h1>
-      )}
-
-      {/*Botões para passar de página*/}
-      <BtnPaginacao
-        page={page}
-        handleProxPage={handleProxPage}
-        handlePrevPage={handlePrevPage}
-        hasNextPage={hasNextPage}
-      />
+        <div class="col-8">
+          {artigos && artigos.length > 0 ? (
+            <div className="artigos">
+              {artigos.map((artigo) => (
+                <ArticleCard
+                  key={artigo.id}
+                  titulo={artigo.titulo}
+                  id={artigo.id}
+                  autor={artigo.autor}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="artigos">
+              <h1>Sem artigos aqui</h1>
+            </div>
+          )}
+          <BtnPaginacao
+            page={page}
+            handleProxPage={handleProxPage}
+            handlePrevPage={handlePrevPage}
+            hasNextPage={hasNextPage}
+          />
+        </div>
+      </div>
     </div>
+
   );
 };
 

@@ -33,12 +33,14 @@ const SelectedMyArticle = () => {
     setTemaSelecionado(e.target.value);
   };
 
+  //Função para limpar dados input
   const cleanData = () => {
     setTemaSelecionado("");
     setTitulo("");
     setConteudo("");
   };
 
+  //Função para atualizar artigo
   const handleUpdate = async () => {
     if (temaSelecionado != "" && titulo != "" && conteudo != "") {
       const artigoAtualizado = {
@@ -62,6 +64,7 @@ const SelectedMyArticle = () => {
     }
   };
   
+  //Função para deletar artigo
   const handleDelete = async() => {
     try {
       await API.delete(`/articles/${artigoID}`);
@@ -79,6 +82,7 @@ const SelectedMyArticle = () => {
       {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>}
       {Object.keys(artigo).length ? (
         <>
+        {/* Formulario Edição */}
           <form>
             <SelectTema
               tema={temaSelecionado}

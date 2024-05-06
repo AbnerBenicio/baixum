@@ -81,7 +81,7 @@ const SelectedMyArticle = () => {
     <>
       {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>}
       {Object.keys(artigo).length ? (
-        <>
+        <div>
           <form>
             <SelectTema
               tema={temaSelecionado}

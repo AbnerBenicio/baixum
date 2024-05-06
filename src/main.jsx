@@ -61,6 +61,10 @@ const router = createBrowserRouter([
         element:<Admin />,
         children: [
           {
+            path: "/:usuarioID/admin",
+            element: <Home />
+          },
+          {
             path:"/:usuarioID/admin/profile",
             element: <Profile />
           },

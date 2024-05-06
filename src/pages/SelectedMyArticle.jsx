@@ -39,14 +39,14 @@ const SelectedMyArticle = () => {
     setConteudo("");
   };
 
-  const handleUpdate = async() => {
+  const handleUpdate = async () => {
     if (temaSelecionado != "" && titulo != "" && conteudo != "") {
       const artigoAtualizado = {
         titulo: titulo,
         conteudo: conteudo,
         tema: temaSelecionado,
         autor: artigo.autor,
-        fk_id_autor: artigo.fk_id_autor
+        fk_id_autor: artigo.fk_id_autor,
       };
       try {
         await API3.post("/articles-to-be-evaluated", artigoAtualizado);
@@ -64,7 +64,7 @@ const SelectedMyArticle = () => {
 
   const handleDelete = () => {
     //Escrever função
-  }
+  };
 
   //Retornando página
   return (

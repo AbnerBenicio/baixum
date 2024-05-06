@@ -33,6 +33,7 @@ const User = () => {
             <Link to={`/${usuarioID}/user/adicionar-artigos`} className="nav-link">Adicionar Artigo</Link> {/*Link para pagina de adicionar artigo*/}
             <Link to={`/${usuarioID}/user/artigos`} className="nav-link">Artigos</Link> {/*Link para artigos*/}
             <Link to={`/${usuarioID}/user/meus-artigos`} className="nav-link">Meus Artigos</Link> {/*Link para meus artigos*/}
+            <Link to={`/`} className="nav-link" >Sair</Link> {/* Link para sair (voltar para tela de login) */}
           </div>
           {/*Saudação ao usuário*/}
           <h5 className="greeting">Olá, {usuario ? usuario.name : ''}</h5>

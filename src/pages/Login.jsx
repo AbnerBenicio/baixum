@@ -48,21 +48,21 @@ const Login = () => {
 
   //Retornando página
   return (
-    <div class="container h-100 d-flex justify-content-center align-items-center">
-      <div class="card bg-light text-center">
-        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+    <div className="container h-100 d-flex justify-content-center align-items-center">
+      <div className="card bg-light text-center">
+        <div className="card-body d-flex flex-column align-items-center justify-content-center">
           {/* Formulário para login */}
           <form onSubmit={handleSubmit}>
             {/* Campo de email */}
-            <div class="input-group flex-nowrap mb-4">
-              <span class="input-group-text" id="addon-wrapping">
+            <div className="input-group flex-nowrap mb-4">
+              <span className="input-group-text" id="addon-wrapping">
                 <img src={Icon1} alt="" />
               </span>
               <input
                 type="email"
                 name="usuario"
                 id="usuario"
-                class="form-control"
+                className="form-control"
                 placeholder="Digite seu email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
@@ -70,15 +70,15 @@ const Login = () => {
             </div>
 
             {/* Campo de senha */}
-            <div class="input-group flex-nowrap mb-4">
-              <span class="input-group-text" id="addon-wrapping">
+            <div className="input-group flex-nowrap mb-4">
+              <span className="input-group-text" id="addon-wrapping">
                 <img src={Icon2} alt="" />
               </span>
               <input
                 type="password"
                 name="senha"
                 id="senha"
-                class="form-control"
+                className="form-control"
                 placeholder="Digite sua senha"
                 onChange={(e) => setSenha(e.target.value)}
                 value={senha}

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import API from "../api/api";
 import API3 from "../api/api3";
 import SelectTema from "../components/SelectTema";
-// import ModalDelete from "../components/ModalDelete";
+import ModalDelete from "../components/ModalDelete";
 
 const SelectedMyArticle = () => {
   //Definindo variáveis
@@ -62,14 +62,21 @@ const SelectedMyArticle = () => {
     }
   };
 
-  const handleDelete = () => {
-    //Escrever função
+  const handleDelete = async() => {
+    try {
+      await API.delete(`/articles/${artigoID}`);
+      cleanData();
+      alert("Artigo deletado com sucesso!");
+      Navigate("../meus-artigos");
+    } catch (err) {
+      alert("Erro ao deletar o artigo");
+    }
   }
 
   //Retornando página
   return (
     <div>
-      {/* {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>} */}
+      {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>}
       {Object.keys(artigo).length ? (
         <>
           <form>

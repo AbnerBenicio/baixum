@@ -69,8 +69,8 @@ const CreateArticle = () => {
 
   //Retornando página
   return (
-      <div class="container mt-4">
-      <h1 class="mb-4">Adicione seu artigo e compartilhe com o mundo</h1>
+      <div className="container mt-4">
+      <h1 className="mb-4">Adicione seu artigo e compartilhe com o mundo</h1>
 
       <div className="jumbotron bg-light">
         <div className="container-fluid text-center">
@@ -78,35 +78,35 @@ const CreateArticle = () => {
         </div>
       </div>
 
-      <div class="add-artigo">
+      <div className="add-artigo">
         {/*Formulário de criação do artigo*/}
-        <form class="mb-3" onSubmit={handleSubmit}>
+        <form className="mb-3" onSubmit={handleSubmit}>
           {/*Campo para título do artigo*/}
-          <div class="input-group mb-3">
-            <span class="input-group-text">Título</span>
+          <div className="input-group mb-3">
+            <span className="input-group-text">Título</span>
             <input
               value={titulo}
               type="text"
               name="titulo"
-              class="form-control"
+              className="form-control"
               onChange={(e) => setTitulo(e.target.value)}
             />
           </div>
 
           {/*Campo para tema do artigo*/}
-          <div class="input-group mb-3">
-            <span class="input-group-text">Tema</span>
+          <div className="input-group mb-3">
+            <span className="input-group-text">Tema</span>
             <SelectTema tema={tema} handleMudaTema={handleMudaTema} />
           </div>
 
           {/*Campo para conteúdo do artigo*/}
-          <div class="mb-3">
-            <label class="form-label">Conteúdo</label>
-            <div class="input-group">
+          <div className="mb-3">
+            <label className="form-label">Conteúdo</label>
+            <div className="input-group">
               <textarea
                 value={conteudo}
                 name="conteudo"
-                class="form-control"
+                className="form-control"
                 id=""
                 cols="60"
                 rows="10"
@@ -117,7 +117,7 @@ const CreateArticle = () => {
           </div>
 
           {/*Botão para envio do formulário*/}
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" className="btn btn-primary">Enviar</button>
         </form>
       </div>
     </div>

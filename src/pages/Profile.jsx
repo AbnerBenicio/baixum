@@ -1,7 +1,8 @@
-import { useParams, useNavigate} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Icon2 from "../assets/lock.png";
 import API from '../api/api';
+import ChangeInfoModal from "../components/ChangeInfoModal";
 
 const Profile = () => {
   const [usuario, setUsuario] = useState(null);
@@ -33,7 +34,8 @@ const Profile = () => {
     fetchApi();
   }, [usuarioID]);
 
-  const handleSaveClick = () => {
+  const handleSaveClick = (e) => {
+    e.preventDefault()
     // Verificar se todas as informações estão preenchidas antes de exibir o modal
     if (name && email && password) {
       setModalVisible(true);
@@ -126,30 +128,13 @@ const Profile = () => {
             </form>
 
             {/* Modal de confirmação */}
-            {modalVisible && (
-              <div className="modal">
-                <div className="modal-content">
-                  <h2>Confirme sua senha</h2>
-                  <input
-                    type="password"
-                    name="verifyPassword"
-                    id="verifyPassword"
-                    className="form-control"
-                    placeholder="Confirme sua senha"
-                    onChange={(e) => setVerifyPassword(e.target.value)}
-                    value={verifyPassword}
-                  />
-                  <button onClick={handleConfirmSave} className="btn btn-primary btn-block mt-2">Confirmar</button>
-                  {error && <p>{error}</p>}
-                </div>
-              </div>
-            )}
+            {modalVisible && <ChangeInfoModal verifyPassword={verifyPassword} setVerifyPassword={setVerifyPassword} handleConfirmSave={handleConfirmSave} error={error}/>}
           </div>
         </div>
       </div>
     </div>
-
   );
 }
 
 export default Profile;
+

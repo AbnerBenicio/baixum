@@ -22,7 +22,7 @@ const User = () => {
 
   //Retornando página
   return (
-    <body>
+    <div>
       <div className="user-container">
         {/*Navbar do usuário*/}
         <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -43,12 +43,12 @@ const User = () => {
           <Outlet /> {/*Exibindo conteúdo das páginas filhas de User*/}
         </main>
 
-        <footer class="container fixed-bottom">
+        <footer className="container fixed-bottom">
           <hr/>
           <p>&copy; DevWeb 2024</p>
         </footer>
       </div>
-    </body>
+    </div>
   )
 }
 

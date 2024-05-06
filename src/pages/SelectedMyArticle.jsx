@@ -61,6 +61,17 @@ const SelectedMyArticle = () => {
       alert("Todas as informações devem ser preenchidas");
     }
   };
+  
+  const handleDelete = async() => {
+    try {
+      await API.delete(`/articles/${artigoID}`);
+      cleanData();
+      alert("Artigo deletado com sucesso!");
+      Navigate("../meus-artigos");
+    } catch (err) {
+      alert("Erro ao deletadar o artigo");
+    }  
+  }
 
   //Retornando página
   return (

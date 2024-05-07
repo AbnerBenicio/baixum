@@ -33,12 +33,14 @@ const SelectedMyArticle = () => {
     setTemaSelecionado(e.target.value);
   };
 
+  //Função para limpar dados input
   const cleanData = () => {
     setTemaSelecionado("");
     setTitulo("");
     setConteudo("");
   };
 
+  //Função para atualizar artigo
   const handleUpdate = async () => {
     if (temaSelecionado != "" && titulo != "" && conteudo != "") {
       const artigoAtualizado = {
@@ -62,6 +64,7 @@ const SelectedMyArticle = () => {
     }
   };
   
+  //Função para deletar artigo
   const handleDelete = async() => {
     try {
       await API.delete(`/articles/${artigoID}`);
@@ -78,42 +81,51 @@ const SelectedMyArticle = () => {
     <>
       {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>}
       {Object.keys(artigo).length ? (
-        <div>
-          {/*Form de edição do artigo*/}
-          <form>
-            <SelectTema
-              tema={temaSelecionado}
-              handleMudaTema={handleMudaTema}
-            />
-            <label>
+        <div className="my-4"> {/* Adicionando margem vertical */}
+          <form className="row g-3">
+            <div className="col-12">
+            <label htmlFor="select" className="form-label">Tema do Artigo:</label>
+              <SelectTema
+                tema={temaSelecionado}
+                handleMudaTema={handleMudaTema}
+              />
+            </div>
+            <div className="col-12">
+              <label htmlFor="titulo" className="form-label">Título do Artigo:</label>
               <input
+                id="titulo"
                 name="titulo"
                 value={titulo}
                 onChange={(e) => setTitulo(e.target.value)}
+                className="form-control"
               />
-              {/*Título do artigo*/}
-            </label>
-            <label>
-              <input
+            </div>
+            <div className="col-12">
+              <label htmlFor="conteudo" className="form-label">Conteúdo do artigo:</label>
+              <textarea
+                id="conteudo"
                 name="conteudo"
                 value={conteudo}
                 onChange={(e) => setConteudo(e.target.value)}
+                className="form-control"
               />
-              {/*Conteúdo do artigo*/}
-            </label>
+            </div>
           </form>
-          {/*Botões para atualizar artigo*/}
-          <button className="update" onClick={handleUpdate}>
-            Editar
-          </button> {/*Botão de edição*/}
-          <button className="delete" onClick={() => setModalOpen(true)}>
-            Excluir
-          </button> {/*Botão de exclusão*/}
+          {/* Botões para atualizar artigo */}
+          <div className="my-4">
+            <button className="btn btn-primary me-3" onClick={handleUpdate}>
+              Editar
+            </button> {/* Botão de edição */}
+            <button className="btn btn-danger" onClick={() => setModalOpen(true)}>
+              Excluir
+            </button> {/* Botão de exclusão */}
+          </div>
         </div>
       ) : (
         <h1>Nenhum artigo selecionado</h1>
       )}
     </>
+
   );
 };
 

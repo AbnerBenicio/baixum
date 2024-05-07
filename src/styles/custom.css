@@ -6,7 +6,7 @@
   background-color: #f8f9fa;
   padding: 20px 0;
   color: #333;
-  z-index: 900; /* Abaixo da barra de navegação */
+  z-index: 10; /* Abaixo da barra de navegação */
 }
 
 /* Estilos para o conteúdo dentro da div jumbotron */
@@ -27,7 +27,37 @@
   z-index: 1000; /* Ou outro valor alto */
 }
 
+.z-index-0 {
+  z-index: 0; /* Ou outro valor alto */
+}
+
+.z-index-10 {
+  z-index: 10; /* Ou outro valor alto */
+}
+
 .vertical-line {
   border-right: 1px solid #ccc; /* Define a linha vertical com cor cinza */
   padding-right: 15px; /* Adiciona um espaço à direita da linha para separação */
 }
+
+.margin-top-25 {
+  margin-top: 25px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-top-75 {
+  margin-top: 75px;
+}
+
+.margin-top-200 {
+  margin-top: 200px;
+}
+
+.artigos-container {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+

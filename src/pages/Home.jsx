@@ -27,14 +27,14 @@ const Home = () => {
   // Retornando página
   return (
     <div>
-      <div className="jumbotron bg-light">
+      <div className="jumbotron bg-light mb-4"> {/* Adicionando a classe mb-4 para margem na parte inferior */}
         <div className="container-fluid text-center">
           <h1 className="display-3">Baixum</h1>
           <p>O seu site de artigos, para compartilhar e aumentar o seu conhecimento</p>
         </div>
       </div>
 
-      <div className="container">
+      <div className="container margin-top-75"> {/* Adicionando a classe my-4 para margem vertical */}
         {usuario && <HomeUser usuarioID={usuarioID} userAdm={usuario.adm}/>}
       </div>
     </div>

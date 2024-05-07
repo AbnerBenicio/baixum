@@ -72,7 +72,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="container h-100 d-flex justify-content-center align-items-center">
+      <div className="container h-100 d-flex justify-content-center align-items-center margin-top-75">
         <div className="card bg-light text-center">
           <div className="card-body d-flex flex-column align-items-center justify-content-center">
             {/* Formulário de perfil */}

@@ -70,17 +70,17 @@ const Articles = () => {
   //Retornando página
   return (
     //Seleção de tema dos artigos
-    <div className="container-fluid full-width">
-      <div className="row row-cols-3">
-        <div className="col bg-light">
-          <div className="align-items-start ml-auto">
-            <div className="row align-items-center mt-5 ml-2">
-                <h2 className="mb-0 mr-3 text-center">Busque o tema</h2>
-                <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
-            </div>
+    <div className="container-fluid full-width vh-100">
+      <div className="row">
+        {/* Coluna para Busca de Tema */}
+        <div className="col-md-4 bg-light py-4 margin-top-25">
+          <div className="d-flex flex-column align-items-center">
+            <h2 className="text-center mb-4">Busque o tema</h2>
+            <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
           </div>
         </div>
-        <div className="col-8">
+        {/* Coluna para Artigos e Paginação */}
+        <div className="col-md-8 py-4 mt-5">
           {artigos && artigos.length > 0 ? (
             <div className="artigos">
               {artigos.map((artigo) => (
@@ -106,6 +106,7 @@ const Articles = () => {
         </div>
       </div>
     </div>
+
 
   );
 };

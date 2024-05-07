@@ -23,25 +23,25 @@ const Admin = () => {
   return (
     <div className="user-container">
       {/* Navbar do usuário */}
-      <nav>
-        {/* Saudação ao usuário */}
-        <h1 className="greeting">Olá, {usuario ? usuario.name : ''}</h1>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         {/* Links de navegação */}
-        <div className="selection-buttons">
-          <Link to={`/${usuarioID}/admin`} >Home</Link> {/* Link para home */}
-          <Link to={`/${usuarioID}/admin/perfil`} >Perfil</Link> {/* Link para perfil */}
-          <Link to={`/${usuarioID}/admin/artigos`} >Artigos Para Validacao</Link> {/* Link para artigos */}
-          <Link to={`/`} >Sair</Link> {/* Link para sair (voltar para tela de login) */}
+        <div className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <Link to={`/${usuarioID}/admin`} className="nav-link">Home</Link> {/* Link para home */}
+          <Link to={`/${usuarioID}/admin/perfil`} className="nav-link">Perfil</Link> {/* Link para perfil */}
+          <Link to={`/${usuarioID}/admin/artigos`} className="nav-link">Artigos Para Validacao</Link> {/* Link para artigos */}
+          <Link to={`/`} className="nav-link">Sair</Link> {/* Link para sair (voltar para tela de login) */}
         </div>
+        {/* Saudação ao usuário */}
+        <h5 className="greeting">Olá, {usuario ? usuario.name : ''}</h5>
       </nav>
 
       {/* Conteúdo principal */}
-      <main className="main-content">
+      <main className="main-content container-fluid">
         <Outlet /> {/* Exibindo conteúdo das páginas filhas de Admin */}
       </main>
 
       {/* Footer */}
-      <footer className="container fixed-bottom">
+      <footer className="container-fluid fixed-bottom">
         <hr />
         <p>&copy; DevWeb 2024</p>
       </footer>

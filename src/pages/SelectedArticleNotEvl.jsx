@@ -47,7 +47,7 @@ const SelectedArticleNotEvl = () => {
   //Retornando página
   return (
     <>
-      {/*Modal de exclusão do artigo*/}
+      {/* Modal de exclusão do artigo */}
       {modalOpen && (
         <ModalDelete
           titulo={artigo.titulo}
@@ -56,16 +56,18 @@ const SelectedArticleNotEvl = () => {
         />
       )}
 
-      {/*Informações do artigo*/}
-      <div>
-        <h1>{artigo.titulo}</h1> {/*Título do artigo*/}
-        <h2>Escrito por: {artigo.autor}</h2> {/*Autor do artigo*/}
-        <p>{artigo.conteudo}</p> {/*Conteúdo do artigo*/}
+      {/* Informações do artigo */}
+      <div className="container mt-5">
+        <h1 className="mb-3">{artigo.titulo}</h1> {/* Título do artigo */}
+        <hr/>
+        <h2 className="mb-4">Escrito por: {artigo.autor}</h2> {/* Autor do artigo */}
+        <hr/>
+        <p className="mb-4">{artigo.conteudo}</p> {/* Conteúdo do artigo */}
 
-        {/*Botões para reprovar e validar artigo*/}
-        <div>
-          <button onClick={handleValidate}>Aprovar</button> {/*Botão de aprovação*/}
-          <button onClick={() => setModalOpen(true)}>Reprovar</button> {/*Botão de reprovação*/}
+        {/* Botões para reprovar e validar artigo */}
+        <div className="mb-4">
+          <button className="btn btn-primary me-3" onClick={handleValidate}>Aprovar</button> {/* Botão de aprovação */}
+          <button className="btn btn-danger" onClick={() => setModalOpen(true)}>Reprovar</button> {/* Botão de reprovação */}
         </div>
       </div>
     </>

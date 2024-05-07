@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../api/api";
-import '../styles/custom.css';
+import "../styles/custom.css";
 
 const SelectedArticle = () => {
   //Definindo variáveis
@@ -20,17 +20,25 @@ const SelectedArticle = () => {
 
   //Retornando página
   return (
-    <div className="container text-center full-width">
-      <div className="row">
-        <div className="col-4 vertical-line">
-          <h1>{artigo.titulo}</h1> {/*Título do artigo*/}
-          <h2>Escrito por: {artigo.autor}</h2> {/*Autor do artigo*/}
-        </div>
-        
-        <div className="col-8">
-          <p>{artigo.conteudo}</p> {/*Conteúdo do artigo*/}
-        </div>
-      </div>
+    <div
+      className="d-flex flex-column justify-content-center align-items-center gap-3"
+      style={{ height: "100vh" }}
+    >
+      <h1>{artigo.titulo}</h1> {/* Título do artigo */}
+      <h2>Escrito por: {artigo.autor}</h2> {/* Autor do artigo */}
+      <p
+        className="border border-gray"
+        style={{
+          width: "50rem",
+          height: "30rem",
+          overflowY: "auto",
+          overflowX: "hidden",
+          textAlign: "left"
+        }}
+      >
+        {artigo.conteudo}
+      </p>
+      {/* Conteúdo do artigo */}
     </div>
   );
 };

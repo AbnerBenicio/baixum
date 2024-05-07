@@ -81,7 +81,8 @@ const SelectedMyArticle = () => {
     <>
       {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>}
       {Object.keys(artigo).length ? (
-        <div className="my-4"> {/* Adicionando margem vertical */}
+        <div className="d-flex flex-column justify-content-center align-items-center gap-3"
+        style={{ height: "100vh" }}> {/* Adicionando margem vertical */}
           <form className="row g-3">
             <div className="col-12">
             <label htmlFor="select" className="form-label">Tema do Artigo:</label>
@@ -108,6 +109,8 @@ const SelectedMyArticle = () => {
                 value={conteudo}
                 onChange={(e) => setConteudo(e.target.value)}
                 className="form-control"
+                cols="100"
+                rows="10"
               />
             </div>
           </form>

@@ -13,7 +13,6 @@ const MyArticles = () => {
   const [hasNextPage, setHasNextPage] = useState(true);
   const { usuarioID } = useParams();
 
-
   //Buscando artigos
   useEffect(() => {
     const fetchApi = async () => {
@@ -26,7 +25,9 @@ const MyArticles = () => {
 
         //Buscando artigos da próxima página
         const nextRes = await API.get(
-          `articles/?page=${page + 1}&limit=5&tema=${temaSelecionado}&fk_id_autor=${usuarioID}`
+          `articles/?page=${
+            page + 1
+          }&limit=5&tema=${temaSelecionado}&fk_id_autor=${usuarioID}`
         );
 
         //Verifica se próxima página não tem artigos
@@ -71,18 +72,22 @@ const MyArticles = () => {
 
   //Retornando página
   return (
-    <div className="container full-width">
-      <div className="row">
+    <div className=" jumbotron container-fluid">
+      <div className="row mx-auto">
         {/* Coluna para Busca de Tema */}
-        <div className="col-md-2 bg-light py-4 margin-top-25 mr-3">
+        <div className="bg-light py-4">
           <div className="d-flex flex-column align-items-center">
             <h2 className="text-center mb-4">Busque o tema</h2>
-            <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
+            <SelectTema
+              tema={temaSelecionado}
+              handleMudaTema={handleMudaTema}
+            />
           </div>
         </div>
+
         {/* Coluna para Artigos e Paginação */}
-        <div className="col-sm-12 col-md-8 py-4 margin-top-30">
-          <div className="artigos-container">
+        <div className="col-md-8 offset-md-2 py-4 mt-5">
+          <div className="artigos">
             {artigos && artigos.length > 0 ? (
               artigos.map((artigo) => (
                 <ArticleCard
@@ -95,18 +100,17 @@ const MyArticles = () => {
             ) : (
               <h1>Sem artigos aqui</h1>
             )}
-            <BtnPaginacao
-              page={page}
-              handleProxPage={handleProxPage}
-              handlePrevPage={handlePrevPage}
-              hasNextPage={hasNextPage}
-            />
           </div>
+          <BtnPaginacao
+            page={page}
+            handleProxPage={handleProxPage}
+            handlePrevPage={handlePrevPage}
+            hasNextPage={hasNextPage}
+          />
         </div>
       </div>
     </div>
-
   );
-}
+};
 
-export default MyArticles
+export default MyArticles;

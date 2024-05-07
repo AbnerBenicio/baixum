@@ -3,7 +3,7 @@ import API from "../api/api";
 import ArticleCard from "../components/ArticleCard";
 import SelectTema from "../components/SelectTema";
 import BtnPaginacao from "../components/BtnPaginacao";
-import '../styles/custom.css';
+import "../styles/custom.css";
 
 const Articles = () => {
   //Criando variáveis para controle da paginação
@@ -70,33 +70,35 @@ const Articles = () => {
   //Retornando página
   return (
     //Seleção de tema dos artigos
-    <div className="container full-width">
-      <div className="row">
+    <div className=" jumbotron container-fluid">
+      <div className="row mx-auto">
         {/* Coluna para Busca de Tema */}
-        <div className="col-md-2 bg-light py-4 margin-top-25 mr-3">
+        <div className="bg-light py-4">
           <div className="d-flex flex-column align-items-center">
-            <h2 className="text-center mb-4">Busque o tema</h2>
-            <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
+            <h2 className="fs-50 fw-normal">Busque o tema</h2>
+            <SelectTema
+              tema={temaSelecionado}
+              handleMudaTema={handleMudaTema}
+            />
           </div>
         </div>
+
         {/* Coluna para Artigos e Paginação */}
-        <div className="col-md-8 py-4 mt-5">
-          {artigos && artigos.length > 0 ? (
-            <div className="artigos">
-              {artigos.map((artigo) => (
+        <div className="col-md-8 offset-md-2 py-4 mt-5">
+          <div className="artigos">
+            {artigos && artigos.length > 0 ? (
+              artigos.map((artigo) => (
                 <ArticleCard
                   key={artigo.id}
                   titulo={artigo.titulo}
                   id={artigo.id}
                   autor={artigo.autor}
                 />
-              ))}
-            </div>
-          ) : (
-            <div className="artigos">
+              ))
+            ) : (
               <h1>Sem artigos aqui</h1>
-            </div>
-          )}
+            )}
+          </div>
           <BtnPaginacao
             page={page}
             handleProxPage={handleProxPage}

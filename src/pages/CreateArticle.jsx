@@ -73,11 +73,11 @@ const CreateArticle = () => {
 
       <div className="jumbotron bg-light">
         <div className="container-fluid text-center">
-          <h1 className="display-3">Adicione seu artigo e compartilhe com o mundo</h1>
+          <h1 className="fs-50 fw-normal">Adicione seu artigo e compartilhe com o mundo</h1>
         </div>
       </div>
 
-      <div className="add-artigo margin-top-200">
+      <div className="add-artigo margin-top-200 d-flex justify-content-center align-items-center w-100" style={{ width: "60vw" }}>
         {/*Formulário de criação do artigo*/}
         <form className="mb-3" onSubmit={handleSubmit}>
           {/*Campo para título do artigo*/}
@@ -107,7 +107,7 @@ const CreateArticle = () => {
                 name="conteudo"
                 className="form-control"
                 id=""
-                cols="60"
+                cols="100"
                 rows="10"
                 style={{ resize: "none" }}
                 onChange={(e) => setConteudo(e.target.value)}

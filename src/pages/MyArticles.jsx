@@ -71,10 +71,10 @@ const MyArticles = () => {
 
   //Retornando página
   return (
-    <div className="container-fluid full-width vh-100">
+    <div className="container full-width">
       <div className="row">
         {/* Coluna para Busca de Tema */}
-        <div className="col-sm-12 col-md-4 bg-light py-4 margin-top-25">
+        <div className="col-md-2 bg-light py-4 margin-top-25 mr-3">
           <div className="d-flex flex-column align-items-center">
             <h2 className="text-center mb-4">Busque o tema</h2>
             <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />

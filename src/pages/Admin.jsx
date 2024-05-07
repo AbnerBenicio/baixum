@@ -39,12 +39,6 @@ const Admin = () => {
       <main className="main-content container-fluid">
         <Outlet /> {/* Exibindo conteúdo das páginas filhas de Admin */}
       </main>
-
-      {/* Footer */}
-      <footer className="container-fluid fixed-bottom">
-        <hr />
-        <p>&copy; DevWeb 2024</p>
-      </footer>
     </div>
   )
 }

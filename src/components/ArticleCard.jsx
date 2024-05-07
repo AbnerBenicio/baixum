@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const ArticleCard = ({ titulo, id, autor }) => {
   //Retornando card do artigo
   return (
-    <div className="card mb-3"  style={{ width: '70%', height: '150px' }}>
+    <div className="card mb-3"  style={{ width: '100%', height: '150px' }}>
       <div className="card-body">
         <Link to={`./${id}`} className="card-link">
           <h5 className="card-title">{titulo}</h5>

@@ -36,18 +36,13 @@ const User = () => {
             <Link to={`/`} className="nav-link" >Sair</Link> {/* Link para sair (voltar para tela de login) */}
           </div>
           {/*Saudação ao usuário*/}
-          <h5 className="greeting">Olá, {usuario ? usuario.name : ''}</h5>
+          <h5 className="greeting margin-right-10">Olá, {usuario ? usuario.name : ''}</h5>
         </nav>
         
         {/*Conteúdo principal*/}
         <main className="main-content container-fluid">
           <Outlet /> {/*Exibindo conteúdo das páginas filhas de User*/}
         </main>
-
-        <footer className="container-fluid fixed-bottom">
-          <hr/>
-          <p className="text-center mb-0">&copy; DevWeb 2024</p>
-        </footer>
       </div>
     </div>
   )

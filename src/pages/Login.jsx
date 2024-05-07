@@ -3,6 +3,7 @@ import Icon2 from "../assets/lock.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import API from "../api/api";
+import Logo from "../assets/BaixiumLogo.png"
 
 const Login = () => {
   //Definindo variáveis para o formulário
@@ -50,7 +51,7 @@ const Login = () => {
   return (
     <div>
     <img
-      src="../src/assets/BaixiumLogo.png"
+      src={Logo}
       alt="Descrição da imagem"
       style={{ width: '50%', height: '50%' }}
     />

@@ -77,7 +77,7 @@ const CreateArticle = () => {
         </div>
       </div>
 
-      <div className="add-artigo margin-top-75">
+      <div className="add-artigo margin-top-200">
         {/*Formulário de criação do artigo*/}
         <form className="mb-3" onSubmit={handleSubmit}>
           {/*Campo para título do artigo*/}
@@ -99,7 +99,7 @@ const CreateArticle = () => {
           </div>
 
           {/*Campo para conteúdo do artigo*/}
-          <div className="mb-3">
+          <div className="mb-3 z-index-10">
             <label className="form-label">Conteúdo</label>
             <div className="input-group">
               <textarea

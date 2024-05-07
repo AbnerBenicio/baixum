@@ -4,27 +4,21 @@ function BtnPaginacao({ page, handleProxPage, handlePrevPage, hasNextPage }) {
   //Retornando botões
   return (
     <div className="buttons">
-      {/*Botão para voltar a página
-              Se estiver na primeira página é desabilitado
-              Se estiver em outras páginas é habilitado
-        */}
-      {page == 1 ? (
-        <button disabled>Prev</button>
+      {/* Botão para voltar a página */}
+      {page === 1 ? (
+        <button className="btn btn-secondary" disabled>Prev</button>
       ) : (
-        <button onClick={handlePrevPage}>Prev</button>
+        <button className="btn btn-primary" onClick={handlePrevPage}>Prev</button>
       )}
 
-      {/*Indicativo da página atual*/}
-      <span>{page}</span>
+      {/* Indicativo da página atual */}
+      <span className="mx-2">{page}</span>
 
-      {/*Botão para ir para a próxima página
-              Se não tiver próxima página é desabilitado
-              Se houver próxima página é habilitado
-        */}
+      {/* Botão para ir para a próxima página */}
       {!hasNextPage ? (
-        <button disabled>Next</button>
+        <button className="btn btn-secondary" disabled>Next</button>
       ) : (
-        <button onClick={handleProxPage}>Next</button>
+        <button className="btn btn-primary" onClick={handleProxPage}>Next</button>
       )}
     </div>
   );

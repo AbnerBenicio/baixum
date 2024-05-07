@@ -44,9 +44,9 @@ const User = () => {
           <Outlet /> {/*Exibindo conteúdo das páginas filhas de User*/}
         </main>
 
-        <footer className="container fixed-bottom">
+        <footer className="container-fluid fixed-bottom">
           <hr/>
-          <p>&copy; DevWeb 2024</p>
+          <p className="text-center mb-0">&copy; DevWeb 2024</p>
         </footer>
       </div>
     </div>

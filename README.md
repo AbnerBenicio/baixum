@@ -21,7 +21,7 @@ O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do
         <img src="https://avatars.githubusercontent.com/u/148019842?v=4" width="100px;" alt="Foto de Arthur Cremasco"/><br>
         <sub>
           <b>Arthur Cremasco</b><br>
-          <b>abnerbeniciosilva123@gmail.com</b>
+          <b>arthurcremasco7@gmail.com</b>
         </sub>
       </a>
     </td>
@@ -30,7 +30,7 @@ O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do
         <img src="https://avatars.githubusercontent.com/u/108959212?v=4" width="100px;" alt="Foto de Filipe Moura"/><br>
         <sub>
           <b>Filipe Moura</b><br>
-          <b>abnerbeniciosilva123@gmail.com</b>
+          <b>filipemoura.pessoal@gmail.com</b>
         </sub>
       </a>
     </td>
@@ -40,8 +40,7 @@ O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do
 
 ## :link: Links
 * :computer: <a href="#">Link de acesso à web</a><br>
-* :dolphin: <a href="#"> Link do SonarQube</a><br>
-* :book: <a href="#">Link para documento de análise</a> e <a href="#">Link para documento de projeto</a><br>
+* :book: <a href="https://docs.google.com/document/d/1tkc91ZLwE62-VggW-cInRVQXvMa-c_Ik3CZhFk3-z1g/edit?usp=sharing">Link para documento de análise</a> e <a href="https://docs.google.com/document/d/1B5MIEB58U2BD5B139OKZn5lCaUFf_Hne/edit?usp=sharing">Link para documento de projeto</a><br>
 
 ## :wrench: Tecnologias utilizadas
 * React.js;

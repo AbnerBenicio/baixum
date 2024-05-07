@@ -41,44 +41,60 @@ const RecoverPassword = () => {
 
   //Retorno da página
   return (
-    <div>
-      <h2>Esqueceu a sua senha? Recupere-a preenchendo o formulario abaixo!</h2> {/*Apresentação da página*/}
-      {/*Formulário para recuperação da senha*/}
-      <form onSubmit={handleSubmit}>
-        <label> {/*Input para nome*/}
-          <input
-            value={nome}
-            name="nome"
-            type="text"
-            placeholder="Digite seu nome"
-            onChange={(e) => setNome(e.target.value)}
-          />
-        </label>
-        <label> {/*Input para email*/}
-          <input
-            value={email}
-            name="nome"
-            type="email"
-            placeholder="Digite seu email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
+    <div className="container h-100 d-flex justify-content-center align-items-center">
+      <img
+        src="../src/assets/BaixiumLogo.png"
+        alt="Logo"
+        style={{ width: '50%', height: '50%', marginBottom: '20px' }}
+      />
+      <div className="card bg-light text-center">
+        <div className="card-body d-flex flex-column align-items-center justify-content-center">
+          <h2>Esqueceu a sua senha? Recupere-a preenchendo o formulário abaixo!</h2>
 
-        <button type="submit">Recuperar</button> {/*Botão para submeter formulário*/}
-      </form>
+          {/* Formulário para recuperação da senha */}
+          <form onSubmit={handleSubmit} className="mb-4">
+            <div className="mb-3">
+              <label htmlFor="nome" className="form-label">Digite seu nome</label>
+              <input
+                value={nome}
+                name="nome"
+                type="text"
+                id="nome"
+                className="form-control"
+                placeholder="Digite seu nome"
+                onChange={(e) => setNome(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">Digite seu email</label>
+              <input
+                value={email}
+                name="email"
+                type="email"
+                id="email"
+                className="form-control"
+                placeholder="Digite seu email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">Recuperar</button> {/*Botão para submeter formulário*/}
+          </form>
 
-      {/*Exibindo informação
-        - Se usuário foi achado, exibe senha
-        - Se usuário não foi achado, informa ao usuário
-      */}
-      {exibirInfo && (
-        <h4>
-          {senha != ""
-            ? `Sua senha é: ${senha}`
-            : "Não existe usuário com essas informações"}
-        </h4>
-      )}
+          {/* Exibindo informação
+            - Se usuário foi achado, exibe senha
+            - Se usuário não foi achado, informa ao usuário
+          */}
+          {exibirInfo && (
+            <h4>
+              {senha !== ""
+                ? `Sua senha é: ${senha}`
+                : "Não existe usuário com essas informações"}
+            </h4>
+          )}
+        </div>
+      </div>
     </div>
+
   );
 };
 

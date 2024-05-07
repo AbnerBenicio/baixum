@@ -68,42 +68,42 @@ const ArticlesNotEvl = () => {
 
   //Retornando página
   return (
-<div className="artigos-main container">
-  {/* Seleção de tema dos artigos */}
-  <div className="mb-4">
-    <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
-  </div>
+    <div className="artigos-main container">
+      {/* Seleção de tema dos artigos */}
+      <div className="mb-4 margin-top-75">
+        <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
+      </div>
 
-  {/* Exibindo artigos */}
-  {artigos && artigos.length > 0 ? (
-    <div className="artigos row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      {/* Mapeando artigos */}
-      {artigos.map((artigo) => (
-        <div key={artigo.id} className="col flex-grow-1">
-          {/* Exibindo artigo */}
-          <ArticleCard
-            titulo={artigo.titulo}
-            id={artigo.id}
-            autor={artigo.autor}
-          />
+      {/* Exibindo artigos */}
+      {artigos && artigos.length > 0 ? (
+        <div className="artigos row">
+          {/* Mapeando artigos */}
+          {artigos.map((artigo) => (
+            <div key={artigo.id} className="col-md-12">
+              {/* Exibindo artigo */}
+              <ArticleCard
+                titulo={artigo.titulo}
+                id={artigo.id}
+                autor={artigo.autor}
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  ) : (
-    // Caso não existam artigos, informando ao usuário
-    <h1 className="text-center mt-5">Sem artigos aqui</h1>
-  )}
+      ) : (
+        // Caso não existam artigos, informando ao usuário
+        <h1 className="text-center mt-5">Sem artigos aqui</h1>
+      )}
 
-  {/* Botões para passar de página */}
-  <div className="d-flex justify-content-center my-4">
-    <BtnPaginacao
-      page={page}
-      handleProxPage={handleProxPage}
-      handlePrevPage={handlePrevPage}
-      hasNextPage={hasNextPage}
-    />
-  </div>
-</div>
+      {/* Botões para passar de página */}
+      <div className="d-flex justify-content-center my-4">
+        <BtnPaginacao
+          page={page}
+          handleProxPage={handleProxPage}
+          handlePrevPage={handlePrevPage}
+          hasNextPage={hasNextPage}
+        />
+      </div>
+    </div>
 
   );
 };

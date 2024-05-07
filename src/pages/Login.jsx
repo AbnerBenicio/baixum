@@ -48,6 +48,12 @@ const Login = () => {
 
   //Retornando página
   return (
+    <div>
+    <img
+      src="../src/assets/BaixiumLogo.png"
+      alt="Descrição da imagem"
+      style={{ width: '50%', height: '50%' }}
+    />
     <div className="container h-100 d-flex justify-content-center align-items-center">
       <div className="card bg-light text-center">
         <div className="card-body d-flex flex-column align-items-center justify-content-center">
@@ -106,6 +112,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
 
   );

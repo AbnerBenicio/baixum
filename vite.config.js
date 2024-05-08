@@ -1,13 +1,18 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import reactRefresh from '@vitejs/plugin-react-refresh';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    outDir: 'build', // Ajuste o diretório de saída aqui
+  plugins: [reactRefresh()],
+  server: {
+    middlewareMode: 'ssr',
+    // Lida com SPA fallback
+    fs: {
+      strict: false,
+    },
   },
 });
+
 
 
 

@@ -5,7 +5,20 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Login, User, RecoverPassword, Profile, Home, Register, CreateArticle, Articles, SelectedArticle, MyArticles, SelectedMyArticle, Admin, ArticlesNotEvl, SelectedArticleNotEvl } from './pages';
+import Login from './pages/Login.jsx'
+import User from './pages/User.jsx'
+import Profile from './pages/Profile.jsx'
+import Home from './pages/Home.jsx'
+import Register from './pages/Register.jsx'
+import RecoverPassword from './pages/RecoverPassword.jsx'
+import CreateArticle from './pages/CreateArticle.jsx'
+import Articles from './pages/Articles.jsx'
+import SelectedArticle from './pages/SelectedArticle.jsx'
+import MyArticles from './pages/MyArticles.jsx'
+import SelectedMyArticle from './pages/SelectedMyArticle.jsx'
+import Admin from './pages/Admin.jsx'
+import ArticlesNotEvl from './pages/ArticlesNotEvl.jsx'
+import SelectedArticleNotEvl from './pages/SelectedArticleNotEvl.jsx'
 
 
 

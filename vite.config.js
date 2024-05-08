@@ -7,5 +7,15 @@ export default defineConfig({
   server: {
     middlewareMode: 'html',
   },
+  build: {
+    outDir: 'build',
+    assetsDir: '.',
+    rollupOptions: {
+      input: {
+        main: './index.html'
+      }
+    }
+  }
 })
+
 

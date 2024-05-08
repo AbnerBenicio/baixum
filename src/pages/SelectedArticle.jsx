@@ -24,7 +24,7 @@ const SelectedArticle = () => {
       className="d-flex flex-column justify-content-center align-items-center"
       style={{ height: "100vh" }}
     >
-      <h1>{artigo.titulo}</h1> {/* Título do artigo */}
+      <h2>{artigo.titulo}</h2> {/* Título do artigo */}
       <h2>Escrito por: {artigo.autor}</h2> {/* Autor do artigo */}
       <p
         className="border border-gray"

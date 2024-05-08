@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../api/api";
+import Logo from "../assets/BaixiumLogo.png"
 
 const RecoverPassword = () => {
   //Definindo variáveis
@@ -41,9 +42,9 @@ const RecoverPassword = () => {
 
   //Retorno da página
   return (
-    <div className="container h-100 d-flex justify-content-center align-items-center">
+    <div className="container d-flex justify-content-center align-items-center" style={{height: "100vh", width: "100vw"}}>
       <img
-        src="../src/assets/BaixiumLogo.png"
+        src={Logo}
         alt="Logo"
         style={{ width: '50%', height: '50%', marginBottom: '20px' }}
       />

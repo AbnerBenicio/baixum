@@ -39,7 +39,7 @@ O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do
 </table>
 
 ## :link: Links
-* :computer: <a href="http://baixumapp.s3-website-us-east-1.amazonaws.com">Link de acesso à web</a><br>
+* :computer: <a href="http://baixumapp.s3-website-us-east-1.amazonaws.com/">Link de acesso à web</a><br>
 * :book: <a href="https://docs.google.com/document/d/1tkc91ZLwE62-VggW-cInRVQXvMa-c_Ik3CZhFk3-z1g/edit?usp=sharing">Link para documento de análise</a> e <a href="https://docs.google.com/document/d/1B5MIEB58U2BD5B139OKZn5lCaUFf_Hne/edit?usp=sharing">Link para documento de projeto</a><br>
 
 ## :wrench: Tecnologias utilizadas
@@ -59,4 +59,4 @@ npm run dev
 ```
 
 ## :video_camera: Uso do aplicativo
-<a href="#">Vídeo demonstrando uso da aplicação</a>
+<a href="https://youtu.be/i6tEAHpXq8k">Vídeo demonstrando uso da aplicação</a>

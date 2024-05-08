@@ -21,11 +21,11 @@ const Admin = () => {
 
   //Retornando página
   return (
-    <div className="user-container">
+    <div className="user-container d-flex flex-column align-items-center">
       {/* Navbar do usuário */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className="navbar d-flex flex-column navbar-expand navbar-light bg-light fixed-top">
         {/* Links de navegação */}
-        <div className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <div className="d-flex gap-4">
           <Link to={`/${usuarioID}/admin`} className="nav-link">Home</Link> {/* Link para home */}
           <Link to={`/${usuarioID}/admin/perfil`} className="nav-link">Perfil</Link> {/* Link para perfil */}
           <Link to={`/${usuarioID}/admin/artigos`} className="nav-link">Artigos Para Validacao</Link> {/* Link para artigos */}
@@ -36,7 +36,7 @@ const Admin = () => {
       </nav>
 
       {/* Conteúdo principal */}
-      <main className="main-content container-fluid">
+      <main className="d-flex justify-content-center align-items-center flex-grow-1 z-index-0">
         <Outlet /> {/* Exibindo conteúdo das páginas filhas de Admin */}
       </main>
     </div>

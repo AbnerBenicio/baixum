@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const HomeUser = ({ usuarioID, userAdm }) => {
   //Retornando componente
   return (
-    <div className="row">
+    <div className="d-flex justify-content-center align-items-center w-100">
       {/*Verificando se usuário é administrador ou não
          - Se for, exibe somente uma opção
          - Se não for, exibe demais opções
@@ -25,7 +25,7 @@ const HomeUser = ({ usuarioID, userAdm }) => {
         </div>
       ) : (
         <>
-          <div className="col-md-4">
+          <div className="col-md-3">
             <h2>Faça Seu Artigo</h2>
             <p>
               Busque um tema em que você domina, escreva sobre ele e mande para

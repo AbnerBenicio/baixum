@@ -53,7 +53,7 @@ const Login = () => {
     <img
       src={Logo}
       alt="Descrição da imagem"
-      style={{ width: '50%', height: '50%' }}
+      style={{ width: '20%', height: '20%' }}
     />
     <div className="container h-100 d-flex justify-content-center align-items-center">
       <div className="card bg-light text-center">

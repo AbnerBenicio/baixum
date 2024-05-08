@@ -21,7 +21,7 @@ const SelectedArticle = () => {
   //Retornando página
   return (
     <div
-      className="d-flex flex-column justify-content-center align-items-center gap-3"
+      className="d-flex flex-column justify-content-center align-items-center"
       style={{ height: "100vh" }}
     >
       <h1>{artigo.titulo}</h1> {/* Título do artigo */}
@@ -30,7 +30,7 @@ const SelectedArticle = () => {
         className="border border-gray"
         style={{
           width: "50rem",
-          height: "30rem",
+          height: "20rem",
           overflowY: "auto",
           overflowX: "hidden",
           textAlign: "left"

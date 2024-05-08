@@ -23,7 +23,9 @@ const ArticlesNotEvl = () => {
 
         //Buscando artigos da próxima página
         const nextRes = await API3.get(
-          `articles-to-be-evaluated/?page=${page + 1}&limit=5&tema=${temaSelecionado}`
+          `articles-to-be-evaluated/?page=${
+            page + 1
+          }&limit=5&tema=${temaSelecionado}`
         );
 
         //Verifica se próxima página não tem artigos
@@ -68,43 +70,47 @@ const ArticlesNotEvl = () => {
 
   //Retornando página
   return (
-    <div className="artigos-main container">
-      {/* Seleção de tema dos artigos */}
-      <div className="mb-4 margin-top-75">
-        <SelectTema tema={temaSelecionado} handleMudaTema={handleMudaTema} />
-      </div>
-
-      {/* Exibindo artigos */}
-      {artigos && artigos.length > 0 ? (
-        <div className="artigos row">
-          {/* Mapeando artigos */}
-          {artigos.map((artigo) => (
-            <div key={artigo.id} className="col-md-12">
-              {/* Exibindo artigo */}
-              <ArticleCard
-                titulo={artigo.titulo}
-                id={artigo.id}
-                autor={artigo.autor}
-              />
-            </div>
-          ))}
+    //Seleção de tema dos artigos
+    <div className=" jumbotron container-fluid">
+      <div className="row mx-auto">
+        {/* Coluna para Busca de Tema */}
+        <div className="bg-light py-4">
+          <div className="d-flex flex-column align-items-center">
+            <h2 className="fw-normal" style={{ fontSize: "25px" }}>
+              Busque o tema
+            </h2>
+            <SelectTema
+              tema={temaSelecionado}
+              handleMudaTema={handleMudaTema}
+            />
+          </div>
         </div>
-      ) : (
-        // Caso não existam artigos, informando ao usuário
-        <h1 className="text-center mt-5">Sem artigos aqui</h1>
-      )}
 
-      {/* Botões para passar de página */}
-      <div className="d-flex justify-content-center my-4">
-        <BtnPaginacao
-          page={page}
-          handleProxPage={handleProxPage}
-          handlePrevPage={handlePrevPage}
-          hasNextPage={hasNextPage}
-        />
+        {/* Coluna para Artigos e Paginação */}
+        <div className="col-md-8 offset-md-2 py-4 mt-5">
+          <div className="artigos">
+            {artigos && artigos.length > 0 ? (
+              artigos.map((artigo) => (
+                <ArticleCard
+                  key={artigo.id}
+                  titulo={artigo.titulo}
+                  id={artigo.id}
+                  autor={artigo.autor}
+                />
+              ))
+            ) : (
+              <h1>Sem artigos aqui</h1>
+            )}
+          </div>
+          <BtnPaginacao
+            page={page}
+            handleProxPage={handleProxPage}
+            handlePrevPage={handlePrevPage}
+            hasNextPage={hasNextPage}
+          />
+        </div>
       </div>
     </div>
-
   );
 };
 

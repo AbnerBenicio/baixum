@@ -77,7 +77,7 @@ const MyArticles = () => {
         {/* Coluna para Busca de Tema */}
         <div className="bg-light py-4">
           <div className="d-flex flex-column align-items-center">
-            <h2 className="text-center mb-4">Busque o tema</h2>
+            <h2 className="fw-normal" style={{fontSize: "25px"}}>Busque o tema</h2>
             <SelectTema
               tema={temaSelecionado}
               handleMudaTema={handleMudaTema}

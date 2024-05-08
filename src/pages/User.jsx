@@ -22,26 +22,14 @@ const User = () => {
   return (
     <div className="user-container d-flex flex-column align-items-center">
       {/* Navbar do usuário */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        {/* Botão para exibir o menu em telas pequenas */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+      <nav className="navbar d-flex flex-column navbar-expand navbar-light bg-light fixed-top z-index-10">
         {/* Links de navegação */}
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="d-flex gap-4" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to={`/${usuarioID}/user`} className="nav-link">
                 Home
-              </Link>{" "}
+              </Link>
               {/* Link para home */}
             </li>
             <li className="nav-item">
@@ -83,13 +71,13 @@ const User = () => {
           </ul>
         </div>
         {/* Saudação ao usuário */}
-        <div className="navbar-text ms-auto">
+        <div className="navbar-text">
           <span className="greeting">Olá, {usuario ? usuario.name : ""}</span>
         </div>
       </nav>
 
       {/* Conteúdo principal */}
-      <main className="d-flex justify-content-center align-items-center flex-grow-1" style={{ width: "100%" }}>
+      <main className="d-flex justify-content-center align-items-center flex-grow-1 z-index-0" style={{ width: "100%" }}>
         <Outlet /> {/* Exibindo conteúdo das páginas filhas de User */}
       </main>
     </div>

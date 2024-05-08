@@ -22,27 +22,27 @@ const SelectedArticleNotEvl = () => {
   }, [artigoID]);
 
   //Função para validar artigo
-  const handleValidate = async() => {
+  const handleValidate = async () => {
     try {
-      await API.post("/articles", artigo)
+      await API.post("/articles", artigo);
       await API3.delete(`/articles-to-be-evaluated/${artigoID}`);
       alert("Artigo validado com sucesso!");
       Navigate("../artigos");
     } catch (err) {
       alert("Erro ao validar o artigo");
-    } 
-  }
+    }
+  };
 
   //Função para reprovar artigo
-  const handleDelete = async() => {
+  const handleDelete = async () => {
     try {
       await API3.delete(`/articles-to-be-evaluated/${artigoID}`);
       alert("Artigo reprovado com sucesso!");
       Navigate("../artigos");
     } catch (err) {
       alert("Erro ao reprovar o artigo");
-    }  
-  }
+    }
+  };
 
   //Retornando página
   return (
@@ -55,19 +55,35 @@ const SelectedArticleNotEvl = () => {
           handleDelete={handleDelete}
         />
       )}
-
       {/* Informações do artigo */}
-      <div className="container mt-5">
-        <h1 className="mb-3">{artigo.titulo}</h1> {/* Título do artigo */}
-        <hr/>
-        <h2 className="mb-4">Escrito por: {artigo.autor}</h2> {/* Autor do artigo */}
-        <hr/>
-        <p className="mb-4">{artigo.conteudo}</p> {/* Conteúdo do artigo */}
-
+      <div
+        className="d-flex flex-column justify-content-center align-items-center"
+        style={{ minHeight: "100vh" }}
+      >
+        <h1>{artigo.titulo}</h1> {/* Título do artigo */}
+        <h2>Escrito por: {artigo.autor}</h2> {/* Autor do artigo */}
+        <p
+          className="border border-gray"
+          style={{
+            width: "50rem",
+            height: "20rem",
+            overflowY: "auto",
+            overflowX: "hidden",
+            textAlign: "left",
+          }}
+        >
+          {artigo.conteudo}
+        </p>
         {/* Botões para reprovar e validar artigo */}
         <div className="mb-4">
-          <button className="btn btn-primary me-3" onClick={handleValidate}>Aprovar</button> {/* Botão de aprovação */}
-          <button className="btn btn-danger" onClick={() => setModalOpen(true)}>Reprovar</button> {/* Botão de reprovação */}
+          <button className="btn btn-primary me-3" onClick={handleValidate}>
+            Aprovar
+          </button>{" "}
+          {/* Botão de aprovação */}
+          <button className="btn btn-danger" onClick={() => setModalOpen(true)}>
+            Reprovar
+          </button>{" "}
+          {/* Botão de reprovação */}
         </div>
       </div>
     </>

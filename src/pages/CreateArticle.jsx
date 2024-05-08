@@ -71,13 +71,7 @@ const CreateArticle = () => {
   return (
       <div className="container mt-4">
 
-      <div className="jumbotron bg-light">
-        <div className="container-fluid text-center">
-          <h1 className="fs-50 fw-normal">Adicione seu artigo e compartilhe com o mundo</h1>
-        </div>
-      </div>
-
-      <div className="add-artigo margin-top-200 d-flex justify-content-center align-items-center w-100" style={{ width: "60vw" }}>
+      <div className="add-artigo margin-top-150 d-flex justify-content-center align-items-center w-100">
         {/*Formulário de criação do artigo*/}
         <form className="mb-3" onSubmit={handleSubmit}>
           {/*Campo para título do artigo*/}

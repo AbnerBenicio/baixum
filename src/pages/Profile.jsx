@@ -1,18 +1,18 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Icon2 from "../assets/lock.png";
-import API from '../api/api';
+import API from "../api/api";
 import ChangeInfoModal from "../components/ChangeInfoModal";
 
 const Profile = () => {
   const [usuario, setUsuario] = useState(null);
   const { usuarioID } = useParams();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [verifyPassword, setVerifyPassword] = useState('');
-  const [error, setError] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [verifyPassword, setVerifyPassword] = useState("");
+  const [error, setError] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ const Profile = () => {
           setPassword(res.data.password);
         }
       } catch (error) {
-        console.error('Erro ao buscar usuário:', error);
+        console.error("Erro ao buscar usuário:", error);
       }
     };
 
@@ -35,18 +35,18 @@ const Profile = () => {
   }, [usuarioID]);
 
   const handleSaveClick = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // Verificar se todas as informações estão preenchidas antes de exibir o modal
     if (name && email && password) {
       setModalVisible(true);
     } else {
-      setError('Preencha todas as informações antes de salvar.');
+      setError("Preencha todas as informações antes de salvar.");
     }
   };
 
   const handleConfirmSave = () => {
     if (verifyPassword === usuario?.password) {
-      setError('');
+      setError("");
       const updatedUser = {
         ...usuario,
         name: name.toUpperCase(),
@@ -57,29 +57,25 @@ const Profile = () => {
       setModalVisible(false);
       alert("Informações alteradas com sucesso! Faça login novamente.");
       navigate("/"); //redireciona para tela de login
-      
     } else {
-      setError('Senha incorreta. Digite novamente sua senha.');
-      setVerifyPassword('');
+      setError("Senha incorreta. Digite novamente sua senha.");
+      setVerifyPassword("");
     }
   };
 
   return (
     <div>
-      <div className="jumbotron bg-light">
-        <div className="container-fluid text-center">
-          <h2 className="display-3">Atualize Sua Conta</h2>
-        </div>
-      </div>
 
-      <div className="container h-100 d-flex justify-content-center align-items-center margin-top-75">
+      <div className="container h-100 d-flex justify-content-center align-items-center margin-top-200">
         <div className="card bg-light text-center">
           <div className="card-body d-flex flex-column align-items-center justify-content-center">
             {/* Formulário de perfil */}
             <form onSubmit={handleSaveClick}>
               {/* Campo de nome */}
               <div className="input-group flex-nowrap mb-4">
-                <span className="input-group-text" id="addon-wrapping">Nome</span>
+                <span className="input-group-text" id="addon-wrapping">
+                  Nome
+                </span>
                 <input
                   type="text"
                   name="nome"
@@ -124,17 +120,26 @@ const Profile = () => {
               </div>
 
               {/* Botão para salvar */}
-              <button type="submit" className="btn btn-primary btn-block mb-2">Salvar</button>
+              <button type="submit" className="btn btn-primary btn-block mb-2">
+                Salvar
+              </button>
             </form>
 
             {/* Modal de confirmação */}
-            {modalVisible && <ChangeInfoModal verifyPassword={verifyPassword} setVerifyPassword={setVerifyPassword} handleConfirmSave={handleConfirmSave} error={error}/>}
+            {modalVisible && (
+              <ChangeInfoModal
+                verifyPassword={verifyPassword}
+                setVerifyPassword={setVerifyPassword}
+                handleConfirmSave={handleConfirmSave}
+                error={error}
+              />
+            )}
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
+//Exportando página
 export default Profile;
-

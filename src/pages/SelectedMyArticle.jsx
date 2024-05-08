@@ -63,9 +63,9 @@ const SelectedMyArticle = () => {
       alert("Todas as informações devem ser preenchidas");
     }
   };
-  
+
   //Função para deletar artigo
-  const handleDelete = async() => {
+  const handleDelete = async () => {
     try {
       await API.delete(`/articles/${artigoID}`);
       cleanData();
@@ -73,26 +73,39 @@ const SelectedMyArticle = () => {
       Navigate("../meus-artigos");
     } catch (err) {
       alert("Erro ao deletar o artigo");
-    }  
-  }
+    }
+  };
 
   //Retornando página
   return (
     <>
-      {modalOpen && <ModalDelete titulo={artigo.titulo} setModalOpen={setModalOpen} handleDelete={handleDelete}/>}
+      {modalOpen && (
+        <ModalDelete
+          titulo={artigo.titulo}
+          setModalOpen={setModalOpen}
+          handleDelete={handleDelete}
+        />
+      )}
       {Object.keys(artigo).length ? (
-        <div className="d-flex flex-column justify-content-center align-items-center gap-3"
-        style={{ height: "100vh" }}> {/* Adicionando margem vertical */}
-          <form className="row g-3">
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          {/* Adicionando margem vertical */}
+          <form
+            className="d-flex flex-column justify-content-center align-items-center"
+            style={{ height: "90vh" }}
+          >
             <div className="col-12">
-            <label htmlFor="select" className="form-label">Tema do Artigo:</label>
+              <label htmlFor="select" className="form-label">
+                Tema do Artigo:
+              </label>
               <SelectTema
                 tema={temaSelecionado}
                 handleMudaTema={handleMudaTema}
               />
             </div>
             <div className="col-12">
-              <label htmlFor="titulo" className="form-label">Título do Artigo:</label>
+              <label htmlFor="titulo" className="form-label">
+                Título do Artigo:
+              </label>
               <input
                 id="titulo"
                 name="titulo"
@@ -102,33 +115,40 @@ const SelectedMyArticle = () => {
               />
             </div>
             <div className="col-12">
-              <label htmlFor="conteudo" className="form-label">Conteúdo do artigo:</label>
+              <label htmlFor="conteudo" className="form-label">
+                Conteúdo do artigo:
+              </label>
               <textarea
                 id="conteudo"
                 name="conteudo"
                 value={conteudo}
                 onChange={(e) => setConteudo(e.target.value)}
                 className="form-control"
-                cols="100"
-                rows="10"
+                cols="80"
+                rows="8"
+                style={{ resize: "none" }}
               />
             </div>
           </form>
-          {/* Botões para atualizar artigo */}
-          <div className="my-4">
+          {/* Botões para reprovar e validar artigo */}
+          <div className="mb-4">
             <button className="btn btn-primary me-3" onClick={handleUpdate}>
               Editar
-            </button> {/* Botão de edição */}
-            <button className="btn btn-danger" onClick={() => setModalOpen(true)}>
-              Excluir
-            </button> {/* Botão de exclusão */}
+            </button>
+            {/* Botão de aprovação */}
+            <button
+              className="btn btn-danger"
+              onClick={() => setModalOpen(true)}
+            >
+              Deletar
+            </button>
+            {/* Botão de reprovação */}
           </div>
         </div>
       ) : (
         <h1>Nenhum artigo selecionado</h1>
       )}
     </>
-
   );
 };
 

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import API_2 from "../api/api2";
 import PropTypes from "prop-types";
+/*Mudança para o projeto final:
+- value do select
+- value das options
+*/
 
 const SelectTema = ({ tema, handleMudaTema }) => {
   //Definindo variável de temas
@@ -18,13 +22,13 @@ const SelectTema = ({ tema, handleMudaTema }) => {
 
   //Retornando selecionador de temas
   return (
-    <select className="form-select" value={tema} name="tema" onChange={handleMudaTema}>
+    <select className="form-select" value={tema.id} name="tema" onChange={handleMudaTema}>
       {/*Opção neutra*/}
       <option value="">Selecione...</option>
       {/*Mpaeando temas para exibir*/}
       {temas &&
         temas.map((currentTema) => (
-          <option key={currentTema.id} value={currentTema.tipo}>
+          <option key={currentTema.id} value={currentTema.id}>
             {currentTema.titulo}
           </option>
         ))}
@@ -34,7 +38,7 @@ const SelectTema = ({ tema, handleMudaTema }) => {
 
 //Definindo tipos dadas props
 SelectTema.propTypes = {
-  tema: PropTypes.string,
+  tema: PropTypes.object,
   handleMudaTema: PropTypes.func,
 };
 

@@ -1,6 +1,6 @@
 import { Link, Outlet, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
-import API from "../api/api";
+import API from "../api/api4";
 
 
 const Admin = () => {
@@ -12,7 +12,7 @@ const Admin = () => {
   //Buscando usuário logado
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await API.get(`user/${usuarioID}`);
+      const res = await API.get(`/usuarios/${usuarioID}`);
       setUsuario(res.data);
     };
 
@@ -32,7 +32,7 @@ const Admin = () => {
           <Link to={`/`} className="nav-link">Sair</Link> {/* Link para sair (voltar para tela de login) */}
         </div>
         {/* Saudação ao usuário */}
-        <h5 className="greeting">Olá, {usuario ? usuario.name : ''}</h5>
+        <h5 className="greeting">Olá, {usuario ? usuario.nome : ''}</h5>
       </nav>
 
       {/* Conteúdo principal */}

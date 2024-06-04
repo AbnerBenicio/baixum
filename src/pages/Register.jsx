@@ -1,31 +1,18 @@
 import Icon1 from "../assets/user.png";
 import Icon2 from "../assets/lock.png";
 import { useNavigate } from "react-router-dom";
-import API from "../api/api";
-import { useEffect, useState } from "react";
+import API from "../api/api4";
+import { useState } from "react";
 import Logo from "../assets/BaixiumLogo.png"
 
 const Register = () => {
   //Sets de informacoes cadastradas
-  const [usuarios, setUsuarios] = useState();
-  const [usuarioExiste, setUsuarioExiste] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confSenha, setConfSenha] = useState("");
-  const [campoBranco, setCampoBranco] = useState(false);
   const [senhaIncompativel, setSenhaIncompativel] = useState(false);
   const navigate = useNavigate();
-
-  //Buscando usuários
-  useEffect(() => {
-    const fetchApi = async () => {
-      const res = await API.get("user");
-      setUsuarios(res.data);
-    };
-
-    fetchApi();
-  }, []);
 
   //Função para limpara estados
   const cleanData = () => {
@@ -34,7 +21,6 @@ const Register = () => {
     setSenha("");
     setConfSenha("");
     setSenhaIncompativel(false);
-    setCampoBranco(false);
   };
 
   //Validacao de formulario
@@ -42,35 +28,28 @@ const Register = () => {
     //Prevenindo atualização após submit
     e.preventDefault();
 
-    const existe = usuarios.some((usuario) => usuario.email === email);
-    setUsuarioExiste(existe);
-
-    if (!existe) {
-      if (name !== "" && email !== "" && senha !== "") {
         //Criando usuário
         if (senha == confSenha) {
+          setSenhaIncompativel(false)
           const user = {
-            name: name.toUpperCase(),
+            nome: name.toUpperCase(),
             email: email,
             password: senha,
-            adm: false,
+            administrador: false,
           };
-          //Limpando estados
-          cleanData();
-          //Adicionando usuario no sistema
-          // eslint-disable-next-line no-unused-vars
-          const res = await API.post("user", user);
-          navigate("/");
+          try {
+            await API.post("/usuarios", user)
+            //Limpando estados
+            cleanData();
+            navigate("/");
+          } catch (err) {
+            alert(err.response.data.detail);
+          }
         } else {
           //Informando incompatibilidade de senhas
           setSenhaIncompativel(true);
         }
-      } else {
-        //Informando incompatibilidade de senhas
-        setCampoBranco(true);
-      }
-    }
-  };
+    };
 
   //Retornando página
   return (
@@ -151,21 +130,9 @@ const Register = () => {
                 />
               </div>
 
-              {/* Informando que existem campos em branco */}
-              {campoBranco && (
-                <span className="text-danger">Há campo(s) em branco!</span>
-              )}
-
               {/* Informando que senhas são incompatíveis */}
               {senhaIncompativel && (
                 <span className="text-danger">Senhas incompatíveis!</span>
-              )}
-
-              {/* Informando que usuário já existe */}
-              {usuarioExiste && (
-                <span className="text-danger">
-                  Usuário já existe! Utilize um novo email.
-                </span>
               )}
 
               {/* Botão para cadastro de usuário */}

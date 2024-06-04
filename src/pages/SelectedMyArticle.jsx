@@ -4,12 +4,17 @@ import API from "../api/api";
 import API3 from "../api/api3";
 import SelectTema from "../components/SelectTema";
 import ModalDelete from "../components/ModalDelete";
+import api2 from "../api/api2";
+/*Mudança para o projeto final:
+- tema selecionado será um object
+- handleMudaTema buscará qual o tema selecionado pelo id
+*/
 
 const SelectedMyArticle = () => {
   //Definindo variáveis
   const { artigoID } = useParams();
   const [artigo, setArtigo] = useState({});
-  const [temaSelecionado, setTemaSelecionado] = useState("");
+  const [temaSelecionado, setTemaSelecionado] = useState({});
   const [titulo, setTitulo] = useState("");
   const [conteudo, setConteudo] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,7 +25,7 @@ const SelectedMyArticle = () => {
     const fetchApi = async () => {
       const res = await API.get(`articles/${artigoID}`);
       setArtigo(res.data);
-      setTemaSelecionado(res.data.tema);
+      setTemaSelecionado(res.data);
       setTitulo(res.data.titulo);
       setConteudo(res.data.conteudo);
     };
@@ -28,9 +33,9 @@ const SelectedMyArticle = () => {
     fetchApi();
   }, [artigoID]);
 
-  const handleMudaTema = (e) => {
+  const handleMudaTema = async(e) => {
     //Define o tema selecionado
-    setTemaSelecionado(e.target.value);
+    setTemaSelecionado((await api2.get(`/tema/${e.target.value}`)).data);
   };
 
   //Função para limpar dados input

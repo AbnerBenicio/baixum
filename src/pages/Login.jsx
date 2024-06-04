@@ -1,49 +1,38 @@
 import Icon1 from "../assets/user.png";
 import Icon2 from "../assets/lock.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import API from "../api/api";
+import { useState } from "react";
+import API from "../api/api4";
 import Logo from "../assets/BaixiumLogo.png"
 
 const Login = () => {
   //Definindo variáveis para o formulário
-  const [usuarios, setUsuarios] = useState();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [usuarioExistente, setUsuarioExistente] = useState(true)
   const navigate = useNavigate()
 
-  //Buscando usuários
-  useEffect(() => {
-    const fetchApi = async () => {
-      const res = await API.get("user");
-      setUsuarios(res.data);
-    };
-
-    fetchApi();
-  }, []);
-
   //Função para submeter o formulário
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     //Prevenindo atualização de página ao enviar formulario
     e.preventDefault();
-    
-    //Mapeando usuários e verificando se usuário informado existe
-    usuarios.map((usuario) => {
-        if(usuario.email == email && usuario.password == senha) {
-            //Se existir, limpa estados e vai para tela inicial
-            setEmail("")
-            setSenha("")
-            if (usuario.adm) {
-              navigate(`${usuario.id}/admin`)
-            } else {
-              navigate(`${usuario.id}/user`)
-            }
-            
-        }
-    })
-    //Define que usuário não existe
-    setUsuarioExistente(false)
+
+    try {
+      const res = await API.post('/login', {
+          email: email,
+          password: senha
+      });
+
+      if (res.data.administrador) {
+          navigate(`${res.data.id}/admin`);
+      } else {
+          navigate(`${res.data.id}/user`);
+      }
+  } catch (err) {
+      alert('Erro ao fazer login. Verifique suas credenciais.');
+      console.log('Erro:', err.response ? err.response.data : err.message);
+      setUsuarioExistente(false)
+  }
 
   };
 

@@ -1,6 +1,6 @@
 import { Link, Outlet, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import API from "../api/api";
+import API from "../api/api4";
 import "../styles/custom.css";
 
 const User = () => {
@@ -11,7 +11,7 @@ const User = () => {
   //Buscando usuário logado
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await API.get(`user/${usuarioID}`);
+      const res = await API.get(`usuarios/${usuarioID}`);
       setUsuario(res.data);
     };
 
@@ -72,7 +72,7 @@ const User = () => {
         </div>
         {/* Saudação ao usuário */}
         <div className="navbar-text">
-          <span className="greeting">Olá, {usuario ? usuario.name : ""}</span>
+          <span className="greeting">Olá, {usuario ? usuario.nome : ""}</span>
         </div>
       </nav>
 

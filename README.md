@@ -1,8 +1,8 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
-<h1 align="center">BAIXUM</h1>
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=bugs)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
+<h1 align="center">BAIXUM</h1>
 
 ## :memo: Descrição
 O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do curso Sistemas de Informação, do IFES Campus Serra. Se trata de uma aplicação web que permite aos usuários publicar artigos e e ver artigos que foram publicados pela comunidade da platafoma. Além disso, o sistema também permite que administradores avaliem os artigos, permitindo ou não que eles sejam publicados para toda a comunidade. 

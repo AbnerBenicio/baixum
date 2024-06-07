@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Icon2 from "../assets/lock.png";
-import API from "../api/api";
+import API from "../api/api4";
 import ChangeInfoModal from "../components/ChangeInfoModal";
 
 const Profile = () => {
@@ -19,12 +19,11 @@ const Profile = () => {
   useEffect(() => {
     const fetchApi = async () => {
       try {
-        const res = await API.get(`user/${usuarioID}`);
+        const res = await API.get(`usuarios/${usuarioID}`);
         setUsuario(res.data);
         if (res.data) {
-          setName(res.data.name);
+          setName(res.data.nome);
           setEmail(res.data.email);
-          setPassword(res.data.password);
         }
       } catch (error) {
         console.error("Erro ao buscar usuário:", error);
@@ -40,24 +39,29 @@ const Profile = () => {
     if (name && email && password) {
       setModalVisible(true);
     } else {
-      setError("Preencha todas as informações antes de salvar.");
+      setModalVisible(false);
+      alert("Preencha todas as informações antes de salvar.");
     }
   };
 
-  const handleConfirmSave = () => {
-    if (verifyPassword === usuario?.password) {
+  const handleConfirmSave = async () => {
+    try {
+      await API.post("/login", {
+        email: usuario.email,
+        password: verifyPassword,
+      });
       setError("");
       const updatedUser = {
         ...usuario,
-        name: name.toUpperCase(),
+        nome: name.toUpperCase(),
         email,
         password,
       };
-      API.put(`user/${usuarioID}`, updatedUser);
+      await API.put(`usuarios/${usuarioID}`, updatedUser);
       setModalVisible(false);
       alert("Informações alteradas com sucesso! Faça login novamente.");
       navigate("/"); //redireciona para tela de login
-    } else {
+    } catch (err) {
       setError("Senha incorreta. Digite novamente sua senha.");
       setVerifyPassword("");
     }
@@ -65,7 +69,6 @@ const Profile = () => {
 
   return (
     <div>
-
       <div className="container h-100 d-flex justify-content-center align-items-center margin-top-200">
         <div className="card bg-light text-center">
           <div className="card-body d-flex flex-column align-items-center justify-content-center">
@@ -84,6 +87,7 @@ const Profile = () => {
                   placeholder="Digite seu nome"
                   onChange={(e) => setName(e.target.value)}
                   value={name}
+                  disabled={modalVisible}
                 />
               </div>
 
@@ -100,6 +104,7 @@ const Profile = () => {
                   placeholder="Digite seu email"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
+                  disabled={modalVisible}
                 />
               </div>
 
@@ -113,15 +118,16 @@ const Profile = () => {
                   name="senha"
                   id="senha"
                   className="form-control"
-                  placeholder="Digite sua senha"
+                  placeholder="Digite sua nova senha"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
+                  disabled={modalVisible}
                 />
               </div>
 
               {/* Botão para salvar */}
               <button type="submit" className="btn btn-primary btn-block mb-2">
-                Salvar
+                Salvar Alterações
               </button>
             </form>
 
@@ -131,6 +137,7 @@ const Profile = () => {
                 verifyPassword={verifyPassword}
                 setVerifyPassword={setVerifyPassword}
                 handleConfirmSave={handleConfirmSave}
+                setModalVisible={setModalVisible}
                 error={error}
               />
             )}

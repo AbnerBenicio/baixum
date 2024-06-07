@@ -1,4 +1,7 @@
-
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=bugs)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=AbnerBenicio_baixum&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=AbnerBenicio_baixum)
 <h1 align="center">BAIXUM</h1>
 
 ## :memo: Descrição

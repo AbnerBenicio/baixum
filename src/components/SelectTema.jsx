@@ -9,6 +9,8 @@ import PropTypes from "prop-types";
 const SelectTema = ({ tema, handleMudaTema }) => {
   //Definindo variável de temas
   const [temas, setTemas] = useState([]);
+  const emptyGuid = "00000000-0000-0000-0000-000000000000";
+
 
   //Buscando temas
   useEffect(() => {
@@ -24,7 +26,7 @@ const SelectTema = ({ tema, handleMudaTema }) => {
   return (
     <select className="form-select" value={tema.id} name="tema" onChange={handleMudaTema}>
       {/*Opção neutra*/}
-      <option value="">Selecione...</option>
+      <option value={emptyGuid}>Selecione...</option>
       {/*Mpaeando temas para exibir*/}
       {temas &&
         temas.map((currentTema) => (

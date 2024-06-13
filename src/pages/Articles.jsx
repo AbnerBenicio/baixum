@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API from "../api/api";
+import API from "../api/api4";
 import ArticleCard from "../components/ArticleCard";
 import SelectTema from "../components/SelectTema";
 import BtnPaginacao from "../components/BtnPaginacao";
@@ -7,7 +7,7 @@ import "../styles/custom.css";
 
 const Articles = () => {
   //Criando variáveis para controle da paginação
-  const [temaSelecionado, setTemaSelecionado] = useState("");
+  const [temaSelecionado, setTemaSelecionado] = useState("00000000-0000-0000-0000-000000000000");
   const [artigos, setArtigos] = useState([]);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
@@ -18,13 +18,13 @@ const Articles = () => {
       try {
         //Buscando artigos na página atual
         const res = await API.get(
-          `articles/?page=${page}&limit=5&tema=${temaSelecionado}`
+          `artigos/validos/?page=${page}&limit=5&temaId=${temaSelecionado}`
         );
         setArtigos(res.data);
 
         //Buscando artigos da próxima página
         const nextRes = await API.get(
-          `articles/?page=${page + 1}&limit=5&tema=${temaSelecionado}`
+          `artigos/validos/?page=${page + 1}&limit=5&temaId=${temaSelecionado}`
         );
 
         //Verifica se próxima página não tem artigos
@@ -92,7 +92,7 @@ const Articles = () => {
                   key={artigo.id}
                   titulo={artigo.titulo}
                   id={artigo.id}
-                  autor={artigo.autor}
+                  autor={artigo.autor.nome}
                 />
               ))
             ) : (

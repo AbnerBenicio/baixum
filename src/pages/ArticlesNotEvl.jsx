@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import API3 from "../api/api3";
+import API from "../api/api4";
 import ArticleCard from "../components/ArticleCard";
 import SelectTema from "../components/SelectTema";
 import BtnPaginacao from "../components/BtnPaginacao";
 
 const ArticlesNotEvl = () => {
   //Criando variáveis para controle da paginação
-  const [temaSelecionado, setTemaSelecionado] = useState("");
+  const [temaSelecionado, setTemaSelecionado] = useState("00000000-0000-0000-0000-000000000000");
   const [artigos, setArtigos] = useState([]);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
@@ -16,16 +16,14 @@ const ArticlesNotEvl = () => {
     const fetchApi = async () => {
       try {
         //Buscando artigos na página atual
-        const res = await API3.get(
-          `articles-to-be-evaluated/?page=${page}&limit=5&tema=${temaSelecionado}`
+        const res = await API.get(
+          `artigos/invalidos/?page=${page}&limit=5&temaId=${temaSelecionado}`
         );
         setArtigos(res.data);
 
         //Buscando artigos da próxima página
-        const nextRes = await API3.get(
-          `articles-to-be-evaluated/?page=${
-            page + 1
-          }&limit=5&tema=${temaSelecionado}`
+        const nextRes = await API.get(
+          `artigos/invalidos/?page=${page + 1}&limit=5&temaId=${temaSelecionado}`
         );
 
         //Verifica se próxima página não tem artigos
@@ -95,7 +93,7 @@ const ArticlesNotEvl = () => {
                   key={artigo.id}
                   titulo={artigo.titulo}
                   id={artigo.id}
-                  autor={artigo.autor}
+                  autor={artigo.autor.nome}
                 />
               ))
             ) : (

@@ -26,7 +26,7 @@ function BtnPaginacao({ page, handleProxPage, handlePrevPage, hasNextPage }) {
 
 //Definindo tipos das props
 BtnPaginacao.propTypes = {
-  page: PropTypes.string,
+  page: PropTypes.number,
   handleProxPage: PropTypes.func,
   handlePrevPage: PropTypes.func,
   hasNextPage: PropTypes.bool,

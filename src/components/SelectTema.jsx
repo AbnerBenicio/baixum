@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 - value das options
 */
 
-const SelectTema = ({ tema, setTema }) => {
+const SelectTema = ({ tema, handleMudaTema }) => {
   //Definindo variável de temas
   const [temas, setTemas] = useState([]);
   const emptyGuid = "00000000-0000-0000-0000-000000000000";
@@ -23,7 +23,7 @@ const SelectTema = ({ tema, setTema }) => {
 
   //Retornando selecionador de temas
   return (
-    <select className="form-select" value={tema} name="tema" onChange={(e) => setTema(e.target.value)}>
+    <select className="form-select" value={tema} name="tema" onChange={handleMudaTema}>
       {/*Opção neutra*/}
       <option value={emptyGuid}>Selecione...</option>
       {/*Mapeando temas para exibir*/}
@@ -41,7 +41,7 @@ const SelectTema = ({ tema, setTema }) => {
 //Definindo tipos dadas props
 SelectTema.propTypes = {
   tema: PropTypes.string,
-  setTema: PropTypes.func,
+  handleMudaTema: PropTypes.func,
 };
 
 //Exportando componente

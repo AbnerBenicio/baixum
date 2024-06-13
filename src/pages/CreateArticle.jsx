@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import API from "../api/api";
-import API_3 from "../api/api3";
+import API from "../api/api4";
 import SelectTema from "../components/SelectTema";
 
 const CreateArticle = () => {
@@ -9,23 +8,12 @@ const CreateArticle = () => {
   const [titulo, setTitulo] = useState("");
   const [tema, setTema] = useState("");
   const [conteudo, setConteudo] = useState("");
-  const [autor, setAutor] = useState("");
   const { usuarioID } = useParams();
-
-  //Buscando autor/usuário
-  useEffect(() => {
-    const fetchApi = async () => {
-      const res = await API.get(`user/${usuarioID}`);
-      setAutor(res.data);
-    };
-
-    fetchApi();
-  }, [usuarioID]);
 
   //Função para limpeza das varáveis
   const cleanData = () => {
     setTitulo("");
-    setTema("");
+    setTema("00000000-0000-0000-0000-000000000000");
     setConteudo("");
   };
 
@@ -34,43 +22,31 @@ const CreateArticle = () => {
     //Evitando atualização da página
     e.preventDefault();
 
-    //Verificando se campos estão preenchidos
-    if (titulo !== "" && tema !== "" && conteudo !== "") {
-      //Definindo dados do artigo
-      const artigo = {
-        titulo: titulo,
-        conteudo: conteudo,
-        autor: autor.name,
-        tema: tema,
-        fk_id_autor: autor.id
-      };
+    const artigo = {
+      titulo: titulo,
+      conteudo: conteudo,
+      validado: false,
+      autor: {id: usuarioID},
+      tema: {id: tema},
+    };
 
-      //Tentando enviar formulário
-      try {
-        //Enviando artigo
-        await API_3.post("/articles-to-be-evaluated", artigo);
-        //Alertando ao usuário que artigo foi enviado com sucesso
-        alert("Artigo enviado com sucesso!");
-        // Limpando os campos do formulário
-        cleanData();
-      } catch (error) {
-        //Alertando erro de envio, se houver
-        alert("Erro ao enviar o artigo: " + error);
-      }
-    } else {
-      //Alertando que existem campos não preenchidos
-      alert("Todas as informações devem ser preenchidas");
+    //Tentando enviar formulário
+    try {
+      //Enviando artigo
+      await API.post("/artigos", artigo);
+      //Alertando ao usuário que artigo foi enviado com sucesso
+      alert("Artigo enviado com sucesso!");
+      // Limpando os campos do formulário
+      cleanData();
+    } catch (error) {
+      //Alertando erro de envio, se houver
+      alert("Erro ao enviar o artigo: " + error.response.data.detail);
     }
   };
 
-  const handleMudaTema = (e) => {
-    setTema(e.target.value)
-  }
-
   //Retornando página
   return (
-      <div className="container mt-4">
-
+    <div className="container mt-4">
       <div className="add-artigo margin-top-150 d-flex justify-content-center align-items-center w-100">
         {/*Formulário de criação do artigo*/}
         <form className="mb-3" onSubmit={handleSubmit}>
@@ -89,7 +65,8 @@ const CreateArticle = () => {
           {/*Campo para tema do artigo*/}
           <div className="input-group mb-3">
             <span className="input-group-text">Tema</span>
-            <SelectTema tema={tema} handleMudaTema={handleMudaTema} />
+            <SelectTema tema={tema} setTema={setTema} />
+
           </div>
 
           {/*Campo para conteúdo do artigo*/}
@@ -110,11 +87,12 @@ const CreateArticle = () => {
           </div>
 
           {/*Botão para envio do formulário*/}
-          <button type="submit" className="btn btn-primary">Enviar</button>
+          <button type="submit" className="btn btn-primary">
+            Enviar
+          </button>
         </form>
       </div>
     </div>
-
   );
 };
 

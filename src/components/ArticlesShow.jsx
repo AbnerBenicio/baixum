@@ -3,6 +3,7 @@ import ArticleCard from "./ArticleCard.jsx";
 import SelectTema from "./SelectTema.jsx";
 import BtnPaginacao from "./BtnPaginacao.jsx";
 import useFetchArtigos from "../hooks/useFetchArticles.js";
+import PropTypes from "prop-types";
 
 const ArticlesShow = ({ apiUrl }) => {
   const [temaSelecionado, setTemaSelecionado] = useState("00000000-0000-0000-0000-000000000000");
@@ -39,6 +40,11 @@ const ArticlesShow = ({ apiUrl }) => {
       </div>
     </div>
   );
+};
+
+//Definindo tipos das props
+ArticlesShow.propTypes = {
+  apiUrl: PropTypes.string
 };
 
 export default ArticlesShow;

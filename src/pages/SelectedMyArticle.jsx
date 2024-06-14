@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import API from "../api/api";
-import API3 from "../api/api3";
+import API from "../api/api4";
 import SelectTema from "../components/SelectTema";
 import ModalDelete from "../components/ModalDelete";
-import api2 from "../api/api2";
-/*Mudança para o projeto final:
-- tema selecionado será um object
-- handleMudaTema buscará qual o tema selecionado pelo id
-*/
 
 const SelectedMyArticle = () => {
   //Definindo variáveis
   const { artigoID } = useParams();
   const [artigo, setArtigo] = useState({});
-  const [temaSelecionado, setTemaSelecionado] = useState({});
+  const [temaSelecionado, setTemaSelecionado] = useState(
+    "00000000-0000-0000-0000-000000000000"
+  );
   const [titulo, setTitulo] = useState("");
   const [conteudo, setConteudo] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,9 +19,9 @@ const SelectedMyArticle = () => {
   //Buscando artigo selecionado
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await API.get(`articles/${artigoID}`);
+      const res = await API.get(`artigos/${artigoID}`);
       setArtigo(res.data);
-      setTemaSelecionado(res.data);
+      setTemaSelecionado(res.data.tema.id);
       setTitulo(res.data.titulo);
       setConteudo(res.data.conteudo);
     };
@@ -33,9 +29,9 @@ const SelectedMyArticle = () => {
     fetchApi();
   }, [artigoID]);
 
-  const handleMudaTema = async(e) => {
+  const handleMudaTema = async (e) => {
     //Define o tema selecionado
-    setTemaSelecionado((await api2.get(`/tema/${e.target.value}`)).data);
+    setTemaSelecionado(e.target.value);
   };
 
   //Função para limpar dados input
@@ -47,25 +43,20 @@ const SelectedMyArticle = () => {
 
   //Função para atualizar artigo
   const handleUpdate = async () => {
-    if (temaSelecionado != "" && titulo != "" && conteudo != "") {
-      const artigoAtualizado = {
-        titulo: titulo,
-        conteudo: conteudo,
-        tema: temaSelecionado,
-        autor: artigo.autor,
-        fk_id_autor: artigo.fk_id_autor,
-      };
-      try {
-        await API3.post("/articles-to-be-evaluated", artigoAtualizado);
-        await API.delete(`/articles/${artigoID}`);
-        cleanData();
-        alert("Artigo atualizado com sucesso!");
-        Navigate("../meus-artigos");
-      } catch (err) {
-        alert("Erro ao atualizar o artigo");
-      }
-    } else {
-      alert("Todas as informações devem ser preenchidas");
+    const artigoAtualizado = {
+      titulo: titulo,
+      conteudo: conteudo,
+      tema: {id: temaSelecionado},
+      autor: {id: artigo.autor.id},
+      validado: false,
+    };
+    try {
+      await API.put(`artigos/${artigoID}`, artigoAtualizado);
+      cleanData();
+      alert("Artigo atualizado com sucesso!");
+      Navigate("../meus-artigos");
+    } catch (error) {
+      alert("Erro ao enviar o artigo: " + error.response.data.detail);
     }
   };
 

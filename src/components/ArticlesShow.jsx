@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 const ArticlesShow = ({ apiUrl }) => {
   // Inicializando o estado para o tema selecionado, artigos, página atual e se há próxima página
   const [temaSelecionado, setTemaSelecionado] = useState("00000000-0000-0000-0000-000000000000");
-  const { artigos, page, setPage, hasNextPage } = useFetchArtigos(`${apiUrl}?temaId=${temaSelecionado}`);
+  const { artigos, page, setPage, hasNextPage } = useFetchArtigos(`${apiUrl}&temaId=${temaSelecionado}`);
 
   // Função para lidar com a mudança de tema
   const handleMudaTema = (e) => {

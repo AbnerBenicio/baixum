@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import API3 from "../api/api3";
-import API from "../api/api";
+import API from "../api/api4";
 import ModalDelete from "../components/ModalDelete";
 
 const SelectedArticleNotEvl = () => {
@@ -14,8 +13,9 @@ const SelectedArticleNotEvl = () => {
   //Buscando artigo selecionado
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await API3.get(`articles-to-be-evaluated/${artigoID}`);
+      const res = await API.get(`artigos/${artigoID}`);
       setArtigo(res.data);
+      console.log(res.data);
     };
 
     fetchApi();
@@ -23,9 +23,12 @@ const SelectedArticleNotEvl = () => {
 
   //Função para validar artigo
   const handleValidate = async () => {
+    const ArtigoValidado = {
+      ...artigo,
+      validado: true,
+    };
     try {
-      await API.post("/articles", artigo);
-      await API3.delete(`/articles-to-be-evaluated/${artigoID}`);
+      await API.put(`/artigos/${artigoID}`, ArtigoValidado);
       alert("Artigo validado com sucesso!");
       Navigate("../artigos");
     } catch (err) {
@@ -36,8 +39,8 @@ const SelectedArticleNotEvl = () => {
   //Função para reprovar artigo
   const handleDelete = async () => {
     try {
-      await API3.delete(`/articles-to-be-evaluated/${artigoID}`);
-      alert("Artigo reprovado com sucesso!");
+      await API.delete(`/artigos/${artigoID}`);
+      alert("Artigo reprovado!");
       Navigate("../artigos");
     } catch (err) {
       alert("Erro ao reprovar o artigo");
@@ -56,36 +59,41 @@ const SelectedArticleNotEvl = () => {
         />
       )}
       {/* Informações do artigo */}
-      <div
-        className="d-flex flex-column justify-content-center align-items-center"
-        style={{ minHeight: "100vh" }}
-      >
-        <h2>{artigo.titulo}</h2> {/* Título do artigo */}
-        <h2>Escrito por: {artigo.autor}</h2> {/* Autor do artigo */}
-        <p
-          className="border border-gray"
-          style={{
-            width: "50rem",
-            height: "20rem",
-            overflowY: "auto",
-            overflowX: "hidden",
-            textAlign: "left",
-          }}
+      {Object.keys(artigo).length > 0 && (
+        <div
+          className="d-flex flex-column justify-content-center align-items-center"
+          style={{ minHeight: "100vh" }}
         >
-          {artigo.conteudo}
-        </p>
-        {/* Botões para reprovar e validar artigo */}
-        <div className="mb-4">
-          <button className="btn btn-primary me-3" onClick={handleValidate}>
-            Aprovar
-          </button>{" "}
-          {/* Botão de aprovação */}
-          <button className="btn btn-danger" onClick={() => setModalOpen(true)}>
-            Reprovar
-          </button>{" "}
-          {/* Botão de reprovação */}
+          <h2>{artigo.titulo}</h2> {/* Título do artigo */}
+          <h2>Escrito por: {artigo.autor.nome}</h2> {/* Autor do artigo */}
+          <p
+            className="border border-gray"
+            style={{
+              width: "50rem",
+              height: "20rem",
+              overflowY: "auto",
+              overflowX: "hidden",
+              textAlign: "left",
+            }}
+          >
+            {artigo.conteudo}
+          </p>
+          {/* Botões para reprovar e validar artigo */}
+          <div className="mb-4">
+            <button className="btn btn-primary me-3" onClick={handleValidate}>
+              Aprovar
+            </button>
+            {/* Botão de aprovação */}
+            <button
+              className="btn btn-danger"
+              onClick={() => setModalOpen(true)}
+            >
+              Reprovar
+            </button>
+            {/* Botão de reprovação */}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

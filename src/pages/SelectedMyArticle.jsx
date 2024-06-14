@@ -63,7 +63,7 @@ const SelectedMyArticle = () => {
   //Função para deletar artigo
   const handleDelete = async () => {
     try {
-      await API.delete(`/articles/${artigoID}`);
+      await API.delete(`/artigos/${artigoID}`);
       cleanData();
       alert("Artigo deletado com sucesso!");
       Navigate("../meus-artigos");

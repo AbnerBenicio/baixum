@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import API from "../api/api";
+import API from "../api/api4";
 import "../styles/custom.css";
 
 const SelectedArticle = () => {
@@ -11,7 +11,7 @@ const SelectedArticle = () => {
   //Buscando artigo selecionado
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await API.get(`articles/${artigoID}`);
+      const res = await API.get(`artigos/${artigoID}`);
       setArtigo(res.data);
     };
 
@@ -19,13 +19,13 @@ const SelectedArticle = () => {
   }, [artigoID]);
 
   //Retornando página
-  return (
+  return (Object.keys(artigo).length > 0 ? ( // Verifica se artigo e artigo.autor existem
     <div
       className="d-flex flex-column justify-content-center align-items-center"
       style={{ height: "100vh" }}
     >
       <h2>{artigo.titulo}</h2> {/* Título do artigo */}
-      <h2>Escrito por: {artigo.autor}</h2> {/* Autor do artigo */}
+      <h2>Escrito por: {artigo.autor.nome}</h2> {/* Autor do artigo */}
       <p
         className="border border-gray"
         style={{
@@ -33,14 +33,14 @@ const SelectedArticle = () => {
           height: "20rem",
           overflowY: "auto",
           overflowX: "hidden",
-          textAlign: "left"
+          textAlign: "left",
         }}
       >
         {artigo.conteudo}
       </p>
       {/* Conteúdo do artigo */}
     </div>
-  );
+  ) : null); // Renderiza null se artigo ou artigo.autor não existirem
 };
 
 //Retornando página

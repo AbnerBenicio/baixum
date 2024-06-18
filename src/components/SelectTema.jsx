@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../api/api4";
 import PropTypes from "prop-types";
-/*Mudança para o projeto final:
-- value do select
-- value das options
-*/
 
 const SelectTema = ({ tema, handleMudaTema }) => {
   //Definindo variável de temas

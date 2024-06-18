@@ -17,6 +17,11 @@ const CreateArticle = () => {
     setConteudo("");
   };
 
+  const handleMudaTema = async (e) => {
+    //Define o tema selecionado
+    setTema(e.target.value);
+  };
+
   //Função para submeter o formulário
   const handleSubmit = async (e) => {
     //Evitando atualização da página
@@ -65,7 +70,7 @@ const CreateArticle = () => {
           {/*Campo para tema do artigo*/}
           <div className="input-group mb-3">
             <span className="input-group-text">Tema</span>
-            <SelectTema tema={tema} setTema={setTema} />
+            <SelectTema tema={tema} handleMudaTema={handleMudaTema} />
 
           </div>
 

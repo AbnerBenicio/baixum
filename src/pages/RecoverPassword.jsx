@@ -1,16 +1,26 @@
 import { useState } from "react";
 import API from "../api/api4";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/BaixiumLogo.png"
 
 const RecoverPassword = () => {
   //Definindo variáveis
   const [email, setEmail] = useState("");
+  const Navigate = useNavigate();
 
   //Validação do formulário
   const handleSubmit =(e) => {
     //Evitando atualização da página
     e.preventDefault();
-    API.post("recuperar-senha", {email: email})
+    try {
+      API.post("recuperar-senha", {email: email})
+      setEmail("")
+      alert("Um email de recuperação foi enviado para o email informado. Verifique na caixa de Span ou no lixo eletrônico.")
+      Navigate("/")
+    } catch (error) {
+      alert("Erro ao enviar o artigo: " + error.response.data.detail);
+    }
+
   };
 
   //Retorno da página

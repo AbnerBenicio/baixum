@@ -1,5 +1,5 @@
 import axios from "axios"
 
 export default axios.create({
-    baseURL:"http://44.222.82.125:8080/baixium/"
+    baseURL:"http://54.89.244.17:8080/baixium/"
 })

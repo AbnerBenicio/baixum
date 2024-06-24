@@ -19,20 +19,23 @@ const SelectTema = ({ tema, handleMudaTema }) => {
 
   //Retornando selecionador de temas
   return (
-    <select className="form-select" value={tema} name="tema" onChange={handleMudaTema}>
+    <select
+      className="form-select"
+      value={tema}
+      name="tema"
+      onChange={handleMudaTema}
+    >
       {/*Opção neutra*/}
       <option value={emptyGuid}>Selecione...</option>
       {/*Mapeando temas para exibir*/}
-      {temas &&
-        temas.map((currentTema) => (
-          <option key={currentTema.id} value={currentTema.id}>
-            {currentTema.titulo}
-          </option>
-        ))}
+      {temas?.map((currentTema) => (
+        <option key={currentTema.id} value={currentTema.id}>
+          {currentTema.titulo}
+        </option>
+      ))}
     </select>
   );
 };
-
 
 //Definindo tipos dadas props
 SelectTema.propTypes = {

@@ -19,7 +19,6 @@ const ArticleCard = ({ titulo, id, autor }) => {
 ArticleCard.propTypes = {
   titulo: PropTypes.string,
   id: PropTypes.string,
-  usuarioID: PropTypes.string,
   autor: PropTypes.string,
 };
 

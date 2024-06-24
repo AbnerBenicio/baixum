@@ -76,7 +76,7 @@ const CreateArticle = () => {
 
           {/*Campo para conteúdo do artigo*/}
           <div className="mb-3 z-index-10">
-            <label className="form-label">Conteúdo</label>
+            <span className="form-label">Conteúdo</span>
             <div className="input-group">
               <textarea
                 value={conteudo}

@@ -9,7 +9,7 @@ O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do
 
 ## :department_store: Link para a API
 O sistema se comunica com uma API construída em C#, utilizando os frameworks .NET(dotnet) e Entity.
-Segue link de acesso para a API:
+Segue link de acesso para a API:<br>
 <a href="https://github.com/AbnerBenicio/mini-api-baixium/">LINK PARA API</a>
 
 ## :handshake: Colaboradores

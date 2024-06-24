@@ -58,7 +58,7 @@ Segue link de acesso para a API:<br>
 * SonarCloud
 
 ## :rocket: Rodando o projeto
-Antes de Rodar o projeto nesse repositório, antes, é necessário rodar a API que está <a href="https://github.com/AbnerBenicio/mini-api-baixium/">aqui</a>.
+Antes de Rodar o projeto nesse repositório, antes, é necessário rodar a API que está <a href="https://github.com/AbnerBenicio/mini-api-baixium/">aqui</a>.<br>
 Para rodar o repositório é necessário clonar o mesmo e dar os seguintes comandos no terminal para iniciar o projeto:
 ```
 npm install

@@ -7,6 +7,11 @@
 ## :memo: Descrição
 O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do curso Sistemas de Informação, do IFES Campus Serra. Se trata de uma aplicação web que permite aos usuários publicar artigos e e ver artigos que foram publicados pela comunidade da platafoma. Além disso, o sistema também permite que administradores avaliem os artigos, permitindo ou não que eles sejam publicados para toda a comunidade. 
 
+## :department_store: Link para a API
+O sistema se comunica com uma API construída em C#, utilizando os frameworks .NET(dotnet) e Entity.<br>
+Segue link de acesso para a API:<br>
+<a href="https://github.com/AbnerBenicio/mini-api-baixium/">LINK PARA API</a>
+
 ## :handshake: Colaboradores
 <table>
   <tr>
@@ -24,7 +29,7 @@ O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do
         <img src="https://avatars.githubusercontent.com/u/148019842?v=4" width="100px;" alt="Foto de Arthur Cremasco"/><br>
         <sub>
           <b>Arthur Cremasco</b><br>
-          <b>arthurcremasco7@gmail.com</b>
+          <b>arthurcremascoamaral7@gmail.com</b>
         </sub>
       </a>
     </td>
@@ -47,9 +52,13 @@ O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do
 
 ## :wrench: Tecnologias utilizadas
 * React.js;
-* Mockapi;
+* AWS;
+* Bootstrap;
+* Axios;
+* SonarCloud
 
 ## :rocket: Rodando o projeto
+Antes de Rodar o projeto nesse repositório, antes, é necessário rodar a API que está <a href="https://github.com/AbnerBenicio/mini-api-baixium/">aqui</a>.<br>
 Para rodar o repositório é necessário clonar o mesmo e dar os seguintes comandos no terminal para iniciar o projeto:
 ```
 npm install

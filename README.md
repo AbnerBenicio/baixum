@@ -69,9 +69,6 @@ npm install bootstrap
 ```
 npm run dev
 ```
-* Conta de administrador para testes:
- - Usuário: filipemoura@gmail.com
- - Senha: germancano
 
 ## :video_camera: Uso do aplicativo
 <a href="https://youtu.be/i6tEAHpXq8k">Vídeo demonstrando uso da aplicação</a>

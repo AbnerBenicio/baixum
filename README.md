@@ -8,7 +8,7 @@
 O Baixum é um projeto desenvolvido para a disciplina de Desenvolvimento Web, do curso Sistemas de Informação, do IFES Campus Serra. Se trata de uma aplicação web que permite aos usuários publicar artigos e e ver artigos que foram publicados pela comunidade da platafoma. Além disso, o sistema também permite que administradores avaliem os artigos, permitindo ou não que eles sejam publicados para toda a comunidade. 
 
 ## :department_store: Link para a API
-O sistema se comunica com uma API construída em C#, utilizando os frameworks .NET(dotnet) e Entity.
+O sistema se comunica com uma API construída em C#, utilizando os frameworks .NET(dotnet) e Entity.<br>
 Segue link de acesso para a API:<br>
 <a href="https://github.com/AbnerBenicio/mini-api-baixium/">LINK PARA API</a>
 
